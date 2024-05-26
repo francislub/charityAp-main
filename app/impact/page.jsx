@@ -87,7 +87,7 @@ export default function ProgramsPage() {
                 {/* Header ends here */}
 
                 <div className="container space-y-10">
-                    <h1><span>Our Impact</span></h1>
+                    <h1>Our Impact</h1>
                     <p className="text-lg">
                     </p>
                 </div>
