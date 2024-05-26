@@ -214,10 +214,10 @@ export default function HomePage() {
                         OUR WORK
                     </h2>
 
-                    <div className="boxContainer md:flex flex flex-col  md:justify-center md:space-x-12 md:flex-row">
+                    <div className="boxContainer md:flex grid md:justify-center md:space-x-12 md:flex-row">
 
                         <div className="box flex flex-col">
-                            <div className="cardImage hidden md:flex"></div>
+                            <div className="cardImage md:flex"></div>
                             <div className="programTitle px-5">
                                 <span className="text-xl text-[#1f8cad]">EDUCATION PROGRAMS</span>
                             </div>
@@ -236,7 +236,7 @@ export default function HomePage() {
                         {/* Box ends here */}
 
                         <div className="box flex flex-col">
-                            <div className="cardImage hidden md:flex"></div>
+                            <div className="cardImage md:flex"></div>
                             <div className="programTitle px-5">
                                 <span className="text-xl text-[#1f8cad]">COMMUNITY BUILDING</span>
                             </div>
@@ -254,7 +254,7 @@ export default function HomePage() {
                         {/* Box ends here */}
 
                         <div className="box flex flex-col">
-                            <div className="cardImage hidden md:flex"></div>
+                            <div className="cardImage md:flex"></div>
                             <div className="programTitle px-5">
                             <span className="text-xl text-[#1f8cad]">CLEAN WATER FOR PEOPLE</span>
                             </div>
