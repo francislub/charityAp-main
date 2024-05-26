@@ -170,7 +170,7 @@ export default function ProgramsPage() {
                                  
                                     <h2 className="text-2xl text-[#1f8cad]">xxxxx community members</h2>
                                     <p className="text-lg">
-                                    benefited from Nalongo Lwokyaza Foundation’s voluntary and community service programs.
+                                    benefited from Nalongo Lwokyaza Foundation's voluntary and community service programs.
                                     </p>
                                     <h2 className="text-2xl text-[#1f8cad]">xxx women</h2>
                                     <p>accessed micro loans;</p>
