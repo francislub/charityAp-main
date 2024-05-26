@@ -85,7 +85,7 @@ export default function HomePage() {
                 {/* Header ends here */}
 
                 <div className="container">
-                    <h1><span>Join Us</span></h1>
+                    <h1>Join Us</h1>
                     <p className="text-lg">
                         Our foundation is committed to paying particular attention to children and youth within their programs who have suffered from violence and trauma, and aspires to sustain support for young people who have suffered trauma. Nalongo Lwokyaza Foundation also recognizes the power of functional education as a critical part of healing conflict and creating social cohesion in communities.
                     </p>

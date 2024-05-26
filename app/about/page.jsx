@@ -89,7 +89,7 @@ export default function HomePage() {
                 {/* Header ends here */}
 
                 <div className="container">
-                    <h1><span>WHO WE ARE</span></h1>
+                    <h1>WHO WE ARE</h1>
                     <p className="text-lg">
                      Nalongo Lwokyaza Foundation is a family-based, non-profit organization established in 2020 in Jinja, Uganda, in memory of the late Nalongo Mukyala Lwokyaza, a wife, mother, educator, mentor - in order to keep her legacy.
                     </p>

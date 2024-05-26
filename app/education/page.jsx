@@ -87,7 +87,7 @@ export default function HomePage() {
                 {/* Header ends here */}
 
                 <div className="container space-y-10">
-                    <h1><span>Education</span></h1>
+                    <h1>Education</h1>
                     <p className="text-lg">
                         Nalongo Lwokyaza Foundation provides access to quality education for conflict affected children living in Uganda.
                     </p>

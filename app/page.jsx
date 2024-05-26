@@ -21,8 +21,14 @@ import galleryImage5 from './public/images/gallery/5.jpg'
 import galleryImage6 from './public/images/gallery/6.jpg'
 import galleryImage7 from './public/images/gallery/7.jpg'
 import galleryImage8 from './public/images/gallery/8.jpg'
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function HomePage() {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+    };
 
     return (
         <div className="scroll-smooth">
@@ -38,6 +44,7 @@ export default function HomePage() {
                         </div>
 
                         <nav className="pt-5">
+                        <div className=" md:flex space-x-4">
                             <ul>
                                 <li class="dropdown">
                                     <a href="/" className="dropbtn link bg-[#1f8cad] rounded-md">ABOUT</a>
@@ -85,6 +92,7 @@ export default function HomePage() {
                                     </Link>
                                 </li>
                             </ul>
+                            </div>
                         </nav>
 
                     </div>

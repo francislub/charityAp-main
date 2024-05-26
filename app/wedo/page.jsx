@@ -86,7 +86,7 @@ export default function HomePage() {
                 {/* Header ends here */}
 
                 <div className="container">
-                    <h1><span>WHAT WE DO</span></h1>
+                    <h1>WHAT WE DO</h1>
                     <p className="text-lg">
                     
                     </p>

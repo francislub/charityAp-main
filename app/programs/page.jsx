@@ -87,7 +87,7 @@ export default function ProgramsPage() {
                 {/* Header ends here */}
 
                 <div className="container space-y-10">
-                    <h1><span>Our Programs</span></h1>
+                    <h1>Our Programs</h1>
                     <p className="text-lg">
                         Kyangwali refugee settlement has almost reached its carrying capacity with the majority; 113,000 from the Democratic Republic of the Congo and 3,300 from South Sudan; (Relief Web, 2020). These countries have been facing civil conflicts for more than two decades, forcing thousands to flee to Uganda as refugees.
                     </p>
