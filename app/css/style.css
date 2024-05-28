@@ -815,7 +815,7 @@ footer .newsLetterContainer input {
     
 }
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
     header nav {
         position: relative;
         border: 2px solid #fff;
@@ -915,6 +915,30 @@ footer .newsLetterContainer input {
         column-count: 2;
     }
     
+} */
+@media (min-width: 769px) {
+    header nav ul {
+        position: static;
+        display: flex;
+        right: auto;
+        background: none;
+        width: auto;
+    }
+
+    header nav ul li {
+        display: inline-block;
+        background: none;
+    }
+
+    header nav ul li a {
+        display: inline;
+        padding: 0;
+        color: #000;
+    }
+
+    header nav button {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 425px) {
