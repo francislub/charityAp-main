@@ -260,6 +260,7 @@ nav ul li a:hover {
 }
 .bannerh {
     background-image: url(../public/images/2.jpg);
+    background-image: url(../public/images/3.jpg);
 }
 .bannerw {
     background-image: url(../public/images/3.jpg);
@@ -1039,11 +1040,30 @@ footer .newsLetterContainer input {
     border-radius: 10px;
     /* width: 350px; */
 }
+
+.blue-button1 {
+    background-color: #008CBA;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 350px;
+}
 .text-center {
     text-align: center;
 }
 .background-color {
     background-color: #f0f0f0;
+}
+
+.background-color1 {
+    background-color: #3207f1;
+    color: white;
 }
 .button-container {
     display: flex;

@@ -191,8 +191,45 @@ const students = [
                             </div>
                             <div className="col">
                                 <h2>Sponsor {currentStudent.name}</h2>
-                                <div className="frame1 text-center">
-                                    
+                                <div className="frame">
+                                    <div className="frame1 text-center">
+                                        <div className="row background-color1">
+                                            <div className="col-6">
+                                               <h4>Choose amount</h4>
+                                               
+                                             <div className="col-6">
+                                               {/* <h3>Choose amount</h3> */}
+                                             </div>
+                                        </div>
+                                    </div>
+                                        <h5><b>Sponsor this child</b></h5>
+                                        <br/>
+                                               <div className="buttonContainer">
+                                                    <div>
+                                                        <Link href='#'>
+                                                        <button className="blue-button">USD$ 50</button>
+                                                        </Link>
+                                                    </div>
+                                                    <div>
+                                                        <Link href='#'>
+                                                        <button className="blue-button">USD$ 100</button>
+                                                        </Link>
+                                                    </div>
+                                                    <div>
+                                                        <Link href='#'>
+                                                        <button className="blue-button">USD$ 150</button>
+                                                        </Link>
+                                                    </div>
+                                                </div>
+                                             {/* </div> */}
+                                        {/* <div className="buttonContainer">
+                                            <div>
+                                                <Link href='#'>
+                                                <button className="blue-button1">Next</button>
+                                                </Link>
+                                            </div>
+                                        </div> */}
+                                    </div>
                                 </div>
                                 <br />
                             </div>
