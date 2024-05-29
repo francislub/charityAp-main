@@ -24,7 +24,11 @@ import galleryImage7 from '../public/images/gallery/7.jpg'
 import galleryImage8 from '../public/images/gallery/8.jpg'
 
 export default function HomePage() {
+    const [isOpen, setIsOpen] = useState(false);
 
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+    };
     return (
         <div className="scroll-smooth">
             <div className="fullContainer bannerd" id="homeSection">
