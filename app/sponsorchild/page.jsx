@@ -110,7 +110,7 @@ const students = [
                 className="rounded-md"/>
             <div className="" id="homeSection">
 
-                <div className="row background-color">
+                <div className="row background-color button-container">
                     <div className="col-lg-7">
                       <Image src={bannerImage} alt="An image" width="800" className="educationImage"/>
                     </div>
@@ -125,13 +125,17 @@ const students = [
                         <h5><b>$50 :</b> Covers meals per child per year </h5>
                         <h5><b>$20 :</b> Covers books per child per year </h5>
                         <h5><b>$30 :</b> Covers school uniform per child </h5>
-                        <div>
-                            <Link href='#aboutSection'>
-                              <button className="green-button">Sponsor A Child</button>
-                            </Link>
-                        </div>
-                        <div>
-                            <button className="blue-button">Give to a different cause</button>
+                        <div className="buttonContainer">
+                            <div>
+                                <Link href='#aboutSection'>
+                                <button className="green-button">Sponsor A Child</button>
+                                </Link>
+                            </div>
+                            <div>
+                            <Link href='#'>
+                                <button className="blue-button">Give to a different cause</button>
+                                </Link>
+                            </div>
                         </div>
                         <br /><br />
                     </div>
