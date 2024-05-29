@@ -79,7 +79,7 @@ export default function HomePage() {
                                         <Link href="/gallery" className="link block px-4 py-2 text-gray-700">Gallery</Link>
                                     </li>
                                     <li>
-                                        <Link href="/donate" className="link bg-amber-700 rounded-lg block px-4 py-2 text-white">Donate</Link>
+                                        <Link href="/paypal" className="link bg-amber-700 rounded-lg block px-4 py-2 text-white">Donate</Link>
                                     </li>
                                 </ul>
                             </div>

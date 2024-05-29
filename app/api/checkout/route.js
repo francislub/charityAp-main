@@ -18,11 +18,11 @@ export async function POST() {
             {
                 amount: {
                     currency_code: "USD",
-                    value: "110.00",
+                    value: "50.00",
                     breakdown: {
                         item_total: {
                             currency_code: "USD",
-                            value: "110.00",
+                            value: "50.00",
                         }
                     }
                 },
@@ -34,15 +34,6 @@ export async function POST() {
                         unit_amount: {
                             currency_code: "USD",
                             value: "50.00",
-                        }
-                    },
-                    {
-                        name: "Child Two",
-                        description: "Child two needs help too",
-                        quantity: "1",
-                        unit_amount: {
-                            currency_code: "USD",
-                            value: "60.00",
                         }
                     }
                 ]

@@ -1,6 +1,7 @@
 'use client';
 import { useRef } from 'react';
 import React, { useState } from 'react';
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 // import { useClient } from 'next/react';
 // import { Child } from '../../models/childModel';
 import Link from "next/link";
@@ -202,23 +203,99 @@ const students = [
                                              </div>
                                         </div>
                                     </div>
-                                        <h5><b>Sponsor this child</b></h5>
-                                        <br/>
+                                    <h4>Sponsor {currentStudent.name}</h4>
+                                        <h5><b>with</b></h5>
+                                        
                                                <div className="buttonContainer">
                                                     <div>
-                                                        <Link href='#'>
-                                                        <button className="blue-button">USD$ 50</button>
-                                                        </Link>
+                                                        {/* <Link href='#'> */}
+                                                        <h3>USD$ 50</h3>
+                                                        <PayPalScriptProvider options={{
+                                                                clientId: process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID
+                                                            }}>
+                                                            {/* <PayPalScriptProvider > */}
+                                                                <PayPalButtons 
+                                                                    style={{
+                                                                        color: "blue", 
+                                                                        layout: "horizontal",
+                                                                    }}
+                                                                    createOrder={async () => {
+                                                                        const res = await fetch('api/checkout', {
+                                                                            method: "POST"
+                                                                        })
+                                                                        const order = await res.json()
+                                                                        console.log(order)
+                                                                        return order.id;
+                                                                    }}   
+                                                                    onApprove={(data,actions) => {
+                                                                        console.log(data);
+                                                                    }}
+                                                                    onCancel={(data) => {
+                                                                        console.log("Cancelled:", data)
+                                                                    }}
+                                                                />
+                                                            </PayPalScriptProvider>
+                                                        {/* </Link> */}
                                                     </div>
                                                     <div>
-                                                        <Link href='#'>
-                                                        <button className="blue-button">USD$ 100</button>
-                                                        </Link>
+                                                        {/* <Link href='#'> */}
+                                                        <h3>USD$ 100</h3>
+                                                        <PayPalScriptProvider options={{
+                                                                clientId: process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID
+                                                            }}>
+                                                            {/* <PayPalScriptProvider > */}
+                                                                <PayPalButtons 
+                                                                    style={{
+                                                                        color: "blue", 
+                                                                        layout: "horizontal",
+                                                                    }}
+                                                                    createOrder={async () => {
+                                                                        const res = await fetch('api/checkout', {
+                                                                            method: "POST"
+                                                                        })
+                                                                        const order = await res.json()
+                                                                        console.log(order)
+                                                                        return order.id;
+                                                                    }}   
+                                                                    onApprove={(data,actions) => {
+                                                                        console.log(data);
+                                                                    }}
+                                                                    onCancel={(data) => {
+                                                                        console.log("Cancelled:", data)
+                                                                    }}
+                                                                />
+                                                            </PayPalScriptProvider>
+                                                        {/* </Link> */}
                                                     </div>
                                                     <div>
-                                                        <Link href='#'>
-                                                        <button className="blue-button">USD$ 150</button>
-                                                        </Link>
+                                                        {/* <Link href='#'> */}
+                                                        <h3>USD$ 150</h3>
+                                                        <PayPalScriptProvider options={{
+                                                                clientId: process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID
+                                                            }}>
+                                                            {/* <PayPalScriptProvider > */}
+                                                                <PayPalButtons 
+                                                                    style={{
+                                                                        color: "blue", 
+                                                                        layout: "horizontal",
+                                                                    }}
+                                                                    createOrder={async () => {
+                                                                        const res = await fetch('api/checkout', {
+                                                                            method: "POST"
+                                                                        })
+                                                                        const order = await res.json()
+                                                                        console.log(order)
+                                                                        return order.id;
+                                                                    }}   
+                                                                    onApprove={(data,actions) => {
+                                                                        console.log(data);
+                                                                    }}
+                                                                    onCancel={(data) => {
+                                                                        console.log("Cancelled:", data)
+                                                                    }}
+                                                                />
+                                                            </PayPalScriptProvider>
+                                                        {/* </Link> */}
                                                     </div>
                                                 </div>
                                              {/* </div> */}
