@@ -1023,7 +1023,7 @@ footer .newsLetterContainer input {
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 10px;
-    width: 350px;
+    /* width: 350px; */
 }
 
 .blue-button {
@@ -1037,7 +1037,7 @@ footer .newsLetterContainer input {
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 10px;
-    width: 350px;
+    /* width: 350px; */
 }
 .text-center {
     text-align: center;
