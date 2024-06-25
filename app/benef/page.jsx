@@ -117,42 +117,40 @@ export default function ProgramsPage() {
                         <div className="flex justify-between xl:flex-row flex-col  xl:space-x-1 space-y-1 xl:space-y-0">
                             <div className="flex-1">
                                 <div className="flex flex-col justify-between h-full space-y-4 background-gray p-4">
-                                    <h2 className="text-2xl text-[#1f8cad]">Education</h2>
-                                    <h5 className="text-1xl text-bold">Some statistics about education here? Mbirabira? Busoga? Uganda? </h5>
-                                    <p>
-                                    Our goal is to provide quality education to xxxx  students affected by poverty in the next 5 years at Primary, Secondary and University levels. This will be achieved by:
-                                    </p> 
-                                    <ul>
-                                        <li>•	Identifying and enrolling talented financially unable children.</li>
-                                        <li>•	Retaining and progression rate of 90% </li>
-                                    </ul>
+                                    <h2 className="text-2xl text-[#1f8cad]">Mirembe Alice</h2>
+                                    <Image 
+                                        className="rounded w-full hidden xl:flex" 
+                                        src={educationImage3}
+                                    />
+                                    <h5 className="text-1xl text-bold">Mirembe Alice is a student  of Katikamu SDA  Secondary  school and one of the Beneficiaries  of this foundation. Since her parents could not afford school fees, this girl was  connected to this foundation in 2017at Kireka SDA primary school where she  sat  for PLE and got 
+                                    a first grade.</h5>
+                                    <h5 className="text-1xl text-bold">From there she joined Katikamu SDA Secondary School. Right now she is in senior Five doing MIT with an aim of becoming an architecture.</h5>
+                                    
                                 </div>
                             </div>
                             <div className="flex-1">
                                 <div className="flex flex-col justify-between h-full space-y-4 background-blue p-4">
-                                    <h2 className="text-1xl text-[#1f8cad]">xx financially disadvantaged children</h2>
-                                    <p >
-                                    have been educated through our primary school education program
-                                    </p> 
-                                    <h2 className="text-1xl text-[#1f8cad]">xx secondary students</h2>
-                                    <p >
-                                    Have accessed quality secondary education on our scholarship scheme.
-                                    </p> 
-                                    <h2 className="text-1xl text-[#1f8cad]">xx university students</h2>
-                                    <p >
-                                    In Uganda have been matched to university scholarship programs to pursue university education.
-                                    </p> 
-                                    <h2 className="text-1xl text-[#1f8cad]">xx</h2>
-                                    <p >
-                                    Have been trained at the vocational institute in Busoga region.
-                                    </p> 
+                                    <h2 className="text-1xl text-[#1f8cad]">Kenneth Kakembo</h2>
+                                    <Image 
+                                        className="rounded w-full hidden xl:flex" 
+                                        src={educationImage3}
+                                    />
+                                    <h5 className="text-1xl text-bold">Kenneth Kakembo was in Primary Five but his father did not have money to continue paying for his education.</h5>
+                                    <h5 className="text-1xl text-bold">The Foundation took him up and educated him at Kireka SDA and is now at Katikamu Secondary School. </h5>
+                                    
                                 </div>
                             </div>
                             <div className="flex-1 hidden xl:flex">
-                            <Image 
-                                className="rounded w-full hidden xl:flex" 
-                                src={educationImage3}
-                            />
+                                <div className="flex flex-col justify-between h-full space-y-4 background-blue p-4">
+                                    <h2 className="text-1xl text-[#1f8cad]">Annet</h2>
+                                    <Image 
+                                        className="rounded w-full hidden xl:flex" 
+                                        src={educationImage3}
+                                    />
+                                    <h5 className="text-1xl text-bold">Annet was a young woman, married but with no proper education. The Foundation paid for her to take a Tailoring course so as to support her young family.</h5>
+                                    {/* <h5 className="text-1xl text-bold">The Foundation took him up and educated him at Kireka SDA and is now at Katikamu Secondary School. </h5> */}
+                                    
+                                </div>
                             </div>
                         </div>
 
@@ -160,44 +158,52 @@ export default function ProgramsPage() {
                             <div className="flex-1">
                                 <div className="flex flex-col justify-between h-full space-y-4 background-blue p-4">
                                   
-                                    <h2 className="text-2xl text-[#1f8cad]">Community Building</h2>
+                                    <h2 className="text-2xl text-[#1f8cad]">Heron Kisa</h2>
+                                    <Image 
+                                        className="rounded w-full hidden xl:flex" 
+                                        src={educationImage1}
+                                    />
                                     <p className="text-lg">
-                                    Our community-based program seeks to improve the livelihoods of the community members,
+                                     Heron Kisa 15 years from a family whose parents separated. After completing his primary level education the single mother could not afford to send him for Secondary education.
                                     </p>
-                                    <ul>
-                                        <li>•	We constructed a borehole that serves xxx people in an area of xxx km</li>
-                                        <li>•	We gave land for the construction of a local church. The foundation collaborates with the local nurse who provides health programs to the community once a quarter or after need.  </li>
-                                    </ul>
+                                    <p className="text-lg">
+                                    The foundation got for him a government school in Jinja city and pays for both his education and other necessities. Currently he is in senior Three
+                                    </p>
                                 </div>
                             </div>
                             <div className="flex-1">
                                    <div className="flex flex-col justify-between h-full space-y-4 background-gray p-4">
                                  
-                                    <h2 className="text-2xl text-[#1f8cad]">xxxxx community members</h2>
+                                    <h2 className="text-2xl text-[#1f8cad]">Hope Kisakye</h2>
+                                    <Image 
+                                        className="rounded w-full hidden xl:flex" 
+                                        src={educationImage1}
+                                    />
                                     <p className="text-lg">
-                                    benefited from Nalongo Lwokyaza Foundation's voluntary and community service programs.
+                                    Hope Kisakye whose mother died and the step mother stopped the father from paying her tuition. The head teacher of the school where she was studying took advantage of her vulnerable status and impregnated her.
                                     </p>
-                                    <h2 className="text-2xl text-[#1f8cad]">xxx women</h2>
-                                    <p>accessed micro loans;</p>
                                     <p className="text-lg">
-                                    xxx families have easy access to the water facility that provides water needs for the community.
+                                    The foundation took her back to school and after completing her Ordinary level Certificate the foundation took her to a vocational institute from where she completed a tailoring course in March this year. She can now take care of her child and support herself.
                                     </p>
-                                    <h2 className="text-2xl text-[#1f8cad]">xx widows & single mothers</h2>
-                                    <ul>
-                                        <li>•	trained in tailoring and garment cutting. </li>
-                                        <li>•	Also trained xxx community members.  </li>
-                                    </ul>
-                                    <h2 className="text-2xl text-[#1f8cad]">xxx men</h2>
-                                    <p className="text-lg">
-                                    trained in skills such as  - - - 
-                                    </p>
+                            
                                 </div>
                             </div>
-                            <div className="flex-1 hidden xl:flex">
-                                <Image 
-                                    className="rounded w-full hidden xl:flex" 
-                                    src={educationImage1}
-                                />
+                            <div className="flex-1">
+                                   <div className="flex flex-col justify-between h-full space-y-4 background-gray p-4">
+                                 
+                                    <h2 className="text-2xl text-[#1f8cad]">Eric Mwebaze</h2>
+                                    <Image 
+                                        className="rounded w-full hidden xl:flex" 
+                                        src={educationImage1}
+                                    />
+                                    <p className="text-lg">
+                                    Eric Mwebaze whose single mother could not pay fees yet he was a bright boy. The foundation assisted him to complete his Advanced level Certificate. Fortunately an organization sponsored his university education but could not cater for his other needs.
+                                    </p>
+                                    <p className="text-lg">
+                                    The foundation has been helping Eric meet his other University expenses. Currently, he is doing his final year of Civil Engineering in the Kampala international University in Uganda western campus.
+                                     </p>
+                            
+                                </div>
                             </div>
 
                         </div>

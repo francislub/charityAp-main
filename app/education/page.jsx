@@ -111,7 +111,7 @@ export default function HomePage() {
                             <div className="space-y-3">
                                 <h2 className="text-4xl text-[#1f8cad]">Primary School Education</h2>
                                 <p className="text-lg">
-                                   Mbirabira is a primary school in Bunhya. Most people are local subsistence farmers. The nearest secondary school is xxxx secondary school and is xxx km away. Many students drop out of school after primary school because they cannot afford to walk the long distance. 
+                                   Mbirabira is a primary school in Bunhya. Most people are local subsistence farmers. The nearest secondary school is Luubu Secondary school which is ten(10) kilometers away. Many students drop out of school after primary school because they cannot afford to walk the long distance. 
                                 </p>
                                 <p className="text-lg">The young people are also exposed to risks of sexual and gender-based violence, early teen pregnancies. </p>
                                 <button className="bg-[#1f8cad] hover:bg-[#197996] px-3 py-1 text-white rounded">

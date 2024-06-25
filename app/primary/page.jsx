@@ -109,9 +109,9 @@ export default function HomePage() {
                             <div className="space-y-3">
                                 <h2 className="text-4xl text-[#1f8cad]">Mbirabira Primary School</h2>
                                 <p className="text-lg">
-                                  Mbirabira is a primary school in Bunhya. Most people are local subsistence farmers. The nearest secondary school is xxxx secondary school and is xxx km away. Many students drop out of school after primary school because they cannot afford to walk the long distance. The young people are also exposed to risks of sexual and gender-based violence, early teen pregnancies.  
+                                  Mbirabira is a primary school in Bunhya. Most people are local subsistence farmers. The nearest secondary school is Luubu Secondary school which is ten(10) kilometers away. Many students drop out of school after primary school because they cannot afford to walk the long distance and there is a high school drop out in the district due to early pregnancy among girls while boys prefer the quick money that can be got from harvesting sugar canes rather than spending many years in school after which getting a job is not guaranteed.   
                                 </p>
-                                <p className="text-lg">We provide three meals a day to keep the children from absenteeism in search for food, we have a school van that takes 3 trips carrying children to and fro school and providing on-campus accommodation for orphaned, unaccompanied minors and children from farther communities within the refugee settlement.</p>
+                                <p className="text-lg">The foundation aims at offering opportunities to children from vulnerable families get an education and skills in order to be self sufficient in future.</p>
 
                                 <h2 className="text-2xl text-[#1f8cad]">PRIMARY SCHOOL PROGRAMS</h2>
                                 <p className="text-lg">We provide three meals a day to keep the children from absenteeism in search for food, we have a school van that takes 3 trips carrying children to and fro school and providing on-campus accommodation for orphaned, unaccompanied minors and children from farther communities within the refugee settlement.</p>
