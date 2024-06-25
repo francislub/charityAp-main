@@ -119,7 +119,7 @@ export default function ProgramsPage() {
                             <div className="flex flex-col justify-between h-full space-y-4 bg-gray-100 p-4 hover:bg-gray-200 hover:scale-105 transition duration-300 ease-in-out cursor-pointer">
                                 <h2 className="text-2xl text-[#1f8cad]">Mirembe Alice</h2>
                                 <Image
-                                    className="rounded w-full h-40 object-cover" style={{ height: "200px", width: "300px" }}
+                                    className="rounded w-full h-40 object-cover" style={{ height: "250px", width: "300px" }}
                                     src={educationImage3}
                                 />
                                 <h5 className="text-1xl text-bold">Mirembe Alice is a student of Katikamu SDA Secondary school and one of the Beneficiaries of this foundation. She was connected to this foundation in 2017 at Kireka SDA primary school where she sat for PLE and got a first grade.</h5>
@@ -130,7 +130,7 @@ export default function ProgramsPage() {
                              <div className="flex flex-col justify-between h-full space-y-4 bg-gray-100 p-4 hover:bg-gray-200 hover:scale-105 transition duration-300 ease-in-out cursor-pointer">
                                     <h2 className="text-1xl text-[#1f8cad]">Kenneth Kakembo</h2>
                                     <Image 
-                                        className="rounded w-full h-40 object-cover" style={{ height: "200px", width: "300px" }} 
+                                        className="rounded w-full h-40 object-cover" style={{ height: "250px", width: "300px" }} 
                                         src={educationImage3}
                                     />
                                     <h5 className="text-1xl text-bold">Kenneth Kakembo was in Primary Five but his father did not have money to continue paying for his education.</h5>
@@ -142,7 +142,7 @@ export default function ProgramsPage() {
                             <div className="flex flex-col justify-between h-full space-y-4 bg-gray-100 p-4 hover:bg-gray-200 hover:scale-105 transition duration-300 ease-in-out cursor-pointer">
                                     <h2 className="text-1xl text-[#1f8cad]">Annet</h2>
                                     <Image 
-                                        className="rounded w-full h-40 object-cover" style={{ height: "200px", width: "300px" }}
+                                        className="rounded w-full h-40 object-cover" style={{ height: "250px", width: "300px" }}
                                         src={educationImage3}
                                     />
                                     <h5 className="text-1xl text-bold">Annet was a young woman, married but with no proper education. The Foundation paid for her to take a Tailoring course so as to support her young family.</h5>
@@ -158,7 +158,7 @@ export default function ProgramsPage() {
                                   
                                     <h2 className="text-2xl text-[#1f8cad]">Heron Kisa</h2>
                                     <Image 
-                                        className="rounded w-full h-40 object-cover" style={{ height: "200px", width: "300px" }}
+                                        className="rounded w-full h-40 object-cover" style={{ height: "250px", width: "300px" }}
                                         src={educationImage1}
                                     />
                                     <p className="text-lg">
@@ -174,7 +174,7 @@ export default function ProgramsPage() {
                                  
                                     <h2 className="text-2xl text-[#1f8cad]">Hope Kisakye</h2>
                                     <Image 
-                                        className="rounded w-full h-40 object-cover" style={{ height: "200px", width: "300px" }}
+                                        className="rounded w-full h-40 object-cover" style={{ height: "250px", width: "300px" }}
                                         src={educationImage1}
                                     />
                                     <p className="text-lg">
@@ -191,7 +191,7 @@ export default function ProgramsPage() {
                                  
                                     <h2 className="text-2xl text-[#1f8cad]">Eric Mwebaze</h2>
                                     <Image 
-                                        className="rounded w-full h-40 object-cover" style={{ height: "200px", width: "300px" }} 
+                                        className="rounded w-full h-40 object-cover" style={{ height: "250px", width: "300px" }} 
                                         src={educationImage1}
                                     />
                                     <p className="text-lg">
@@ -208,7 +208,7 @@ export default function ProgramsPage() {
                                  
                                     <h2 className="text-2xl text-[#1f8cad]">David Muwanguzi </h2>
                                     <Image 
-                                        className="rounded w-full h-40 object-cover" style={{ height: "200px", width: "300px" }}
+                                        className="rounded w-full h-40 object-cover" style={{ height: "250px", width: "300px" }}
                                         src={educationImage1}
                                     />
                                     <p className="text-lg">
