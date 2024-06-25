@@ -205,6 +205,23 @@ export default function ProgramsPage() {
                             
                                 </div>
                             </div>
+                            <div className="flex-1">
+                                   <div className="flex flex-col justify-between h-full space-y-4 background-gray p-4">
+                                 
+                                    <h2 className="text-2xl text-[#1f8cad]">David Muwanguzi </h2>
+                                    <Image 
+                                        className="rounded w-full hidden xl:flex" 
+                                        src={educationImage1}
+                                    />
+                                    <p className="text-lg">
+                                    David Muwanguzi whose single mother has been struggling to pay fees while struggling with supporting two other children.
+                                    </p>
+                                    <p className="text-lg">
+                                    The foundation took over paying his fees since Primary seven in 2002. Currently, David is in senior two.
+                                    </p>
+                            
+                                </div>
+                            </div>
 
                         </div>
 
