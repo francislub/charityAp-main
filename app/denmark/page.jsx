@@ -65,6 +65,7 @@ export default function HomePage() {
                                             <Link href="/impact" className="link block px-4 py-2 text-gray-700">OUR IMPACT</Link>
                                             <Link href="/team" className="link block px-4 py-2 text-gray-700">OUR LEADERSHIP</Link>
                                             <Link href="/joinus" className="link block px-4 py-2 text-gray-700">JOIN OUR TEAM</Link>
+                                            <Link href="/benef" className="link block px-4 py-2 text-gray-700">BENEFICIARIES</Link>
                                         </div>
                                     </li>
                                     <li className="dropdown relative">

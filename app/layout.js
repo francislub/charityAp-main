@@ -4,7 +4,7 @@ import Head from 'next/head';
 
 export const metadata = {
     title: 'NALONGO FOUNDATION',
-    description: 'Developed by TroyMoses',
+    description: 'Developed by TroyMoses And Francis',
 }
 
 export default function RootLayout({ children }) {
