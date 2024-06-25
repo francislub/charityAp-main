@@ -116,7 +116,7 @@ export default function ProgramsPage() {
                     <div className="space-y-20">
                         <div className="flex justify-between xl:flex-row flex-col  xl:space-x-1 space-y-1 xl:space-y-0">
                             <div className="flex-1">
-                                <div className="flex flex-col justify-between h-full space-y-4 background-gray p-4">
+                                <div className="flex flex-col justify-between h-full space-y-4 background-gray p-4 hover:bg-gray-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer">
                                     <h2 className="text-2xl text-[#1f8cad]">Education</h2>
                                     <h5 className="text-1xl text-bold">Some statistics about education here? Mbirabira? Busoga? Uganda? </h5>
                                     <p>
@@ -129,7 +129,7 @@ export default function ProgramsPage() {
                                 </div>
                             </div>
                             <div className="flex-1">
-                                <div className="flex flex-col justify-between h-full space-y-4 background-blue p-4">
+                                <div className="flex flex-col justify-between h-full space-y-4 background-blue p-4 hover:bg-gray-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer">
                                     <h2 className="text-1xl text-[#1f8cad]">xx financially disadvantaged children</h2>
                                     <p >
                                     have been educated through our primary school education program
@@ -148,7 +148,7 @@ export default function ProgramsPage() {
                                     </p> 
                                 </div>
                             </div>
-                            <div className="flex-1 hidden xl:flex">
+                            <div className="flex-1 hidden xl:flex hover:bg-gray-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer">
                             <Image 
                                 className="rounded w-full hidden xl:flex" 
                                 src={educationImage3}
@@ -158,7 +158,7 @@ export default function ProgramsPage() {
 
                         <div className="flex justify-between xl:flex-row flex-col  xl:space-x-1 space-y-1 xl:space-y-0">
                             <div className="flex-1">
-                                <div className="flex flex-col justify-between h-full space-y-4 background-blue p-4">
+                                <div className="flex flex-col justify-between h-full space-y-4 background-blue p-4 hover:bg-gray-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer">
                                   
                                     <h2 className="text-2xl text-[#1f8cad]">Community Building</h2>
                                     <p className="text-lg">
@@ -171,7 +171,7 @@ export default function ProgramsPage() {
                                 </div>
                             </div>
                             <div className="flex-1">
-                                   <div className="flex flex-col justify-between h-full space-y-4 background-gray p-4">
+                                   <div className="flex flex-col justify-between h-full space-y-4 background-gray p-4 hover:bg-gray-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer">
                                  
                                     <h2 className="text-2xl text-[#1f8cad]">xxxxx community members</h2>
                                     <p className="text-lg">
@@ -193,7 +193,7 @@ export default function ProgramsPage() {
                                     </p>
                                 </div>
                             </div>
-                            <div className="flex-1 hidden xl:flex">
+                            <div className="flex-1 hidden xl:flex hover:bg-gray-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer">
                                 <Image 
                                     className="rounded w-full hidden xl:flex" 
                                     src={educationImage1}

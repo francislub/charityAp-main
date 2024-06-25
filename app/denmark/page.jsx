@@ -4,7 +4,7 @@ import Link from "next/link";
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import logoImage from '../public/images/logo1.png'
 import logoImage1 from '../public/icons/face.png'
 import logoImage2 from '../public/icons/ins.png'
@@ -22,9 +22,13 @@ export default function HomePage() {
 
     const [chapterDenmark, setChapterDenmark] = useState([]);
 
+    const router = useRouter();
+    const searchParams = useSearchParams();
+    const id = searchParams.get('id');
+
     const fetchChapterDenmark = async () => {
         try {
-        const response = await fetch('https://nalongo-dashboard-server.onrender.com/api/v1/chapter-denmark');
+        const response = await fetch('https://nalongo-dashboard-server.onrender.com/api/v1/chapter-denmark/${id}');
         const data = await response.json();
         setChapterDenmark(data);
         } catch (error) {
@@ -35,6 +39,11 @@ export default function HomePage() {
     useEffect(() => {
         fetchChapterDenmark();
     }, []);
+    useEffect(() => {
+        if (id) {
+            fetchChapterDenmark();
+        }
+    }, [id]);
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -151,7 +160,7 @@ export default function HomePage() {
                                      <h2>{truncateDescription(chapter.description, 30)}</h2>
                                     </div>
                                     <button className="hover:bg-[#197996] w-40">
-                                    <Link href={`/anja/${chapter._id}`}>
+                                    <Link href={`/anja?id=${chapter._id}`}>
                                         Read More
                                     </Link>
                                     </button>

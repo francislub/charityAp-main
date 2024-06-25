@@ -30,14 +30,12 @@ export default function HomePage() {
         setIsOpen(!isOpen);
     };
     const router = useRouter();
-  const { id } = router.query;
-//   const [chapter, setChapter] = useState(null);
 
   const [chapterDenmark, setChapterDenmark] = useState([]);
 
     const fetchChapterDenmark = async () => {
         try {
-        const response = await fetch('https://nalongo-dashboard-server.onrender.com/api/v1/chapter-denmark/${id}');
+        const response = await fetch('https://nalongo-dashboard-server.onrender.com/api/v1/chapter-denmark');
         const data = await response.json();
         setChapterDenmark(data);
         } catch (error) {
@@ -47,9 +45,9 @@ export default function HomePage() {
 
     useEffect(() => {
         fetchChapterDenmark();
-    }, [id]);
+    }, []);
 
-  if (!chapter) return <p>Loading...</p>;
+//   if (!chapter) return <p>Loading...</p>;
     return (
         <div className="scroll-smooth">
             <div className="fullContainer" id="homeSection">
@@ -125,12 +123,12 @@ export default function HomePage() {
            
                 <div className="boxContainer md:flex flex-col md:flex-row md:space-x-12">
 
-                    <div className="cardImage md:flex w-1/2"  key={chapter._id}>
-                        <img src={chapter.photo} alt={chapter.name} className="w-full h-auto object-cover" />
+                    <div className="cardImage md:flex w-1/2"  key={chapterDenmark._id}>
+                        <img src={chapterDenmark.photo} alt={chapterDenmark.name} className="w-full h-auto object-cover" />
                     </div>
                     <div className="programDesc w-1/2">
-                        <span className="text-xl text-[#1f8cad]">{chapter.name}</span>
-                        <h1>{chapter.description}</h1>
+                        <span className="text-xl text-[#1f8cad]">{chapterDenmark.name}</span>
+                        <h1>{chapterDenmark.description}</h1>
                     </div>
                 </div>
             

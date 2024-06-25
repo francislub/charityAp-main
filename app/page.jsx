@@ -221,9 +221,9 @@ export default function HomePage() {
                         OUR WORK
                     </h2>
 
-                    <div className="boxContainer md:flex grid md:justify-center md:space-x-12 md:flex-row">
+                    <div className="boxContainer md:flex grid md:justify-center md:space-x-12 md:flex-row ">
 
-                        <div className="box flex flex-col">
+                        <div className="box flex flex-col hover:bg-gray-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer">
                             <div className="cardImage md:flex"></div>
                             <div className="programTitle px-5">
                                 <span className="text-xl text-[#1f8cad]">EDUCATION PROGRAMS</span>
@@ -242,7 +242,7 @@ export default function HomePage() {
                         </div>
                         {/* Box ends here */}
 
-                        <div className="box flex flex-col">
+                        <div className="box flex flex-col hover:bg-gray-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer">
                             <div className="cardImage md:flex"></div>
                             <div className="programTitle px-5">
                                 <span className="text-xl text-[#1f8cad]">COMMUNITY BUILDING</span>
@@ -260,7 +260,7 @@ export default function HomePage() {
                         </div>
                         {/* Box ends here */}
 
-                        <div className="box flex flex-col">
+                        <div className="box flex flex-col hover:bg-gray-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer">
                             <div className="cardImage md:flex"></div>
                             <div className="programTitle px-5">
                             <span className="text-xl text-[#1f8cad]">CLEAN WATER FOR PEOPLE</span>
