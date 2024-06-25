@@ -11,20 +11,29 @@ import logoImage2 from '../public/icons/ins.png'
 import logoImage3 from '../public/icons/link.png'
 import logoImage4 from '../public/icons/twi.png'
 import logoImage5 from '../public/icons/you.png'
+// import ChapterDenmarkModel from '../../models/chapter-denmark';
+
 
 import bannerImage from '../public/images/1.jpg'
 import educationImage from '../public/images/gallery/8.jpg'
-import galleryImage1 from '../public/images/gallery/1.jpg'
-import galleryImage2 from '../public/images/gallery/2.jpg'
-import galleryImage3 from '../public/images/gallery/3.jpg'
-import galleryImage4 from '../public/images/gallery/4.jpg'
-import galleryImage5 from '../public/images/gallery/5.jpg'
-import galleryImage6 from '../public/images/gallery/6.jpg'
-import galleryImage7 from '../public/images/gallery/7.jpg'
-import galleryImage8 from '../public/images/gallery/8.jpg'
 
 export default function HomePage() {
     const [isOpen, setIsOpen] = useState(false);
+
+    const [chapters, setChapters] = useState([]);
+
+    useEffect(() => {
+      // Fetch data from the Model
+      axios.get('/api/denmark')
+        .then(response => {
+          setChapters(response.data);
+        })
+        .catch(error => {
+          console.error('Error fetching data:', error);
+        });
+    }, []);
+
+    console.log(chapters);
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -120,24 +129,27 @@ export default function HomePage() {
                         DENMARK
                     </h2>
 
-                    <div className="boxContainer md:flex flex flex-col md:space-x-2  md:justify-center md:flex-row">
-
-                        <div className="box flex flex-col col-md">
-                            <div className="cardImage hidden md:flex"></div>
-                            <div className="programTitle px-5">
-                                <span className="text-xl text-[#1f8cad]">Anja Schäper</span>
-                            </div>
-                            <div className="programDesc">
-                                <h2>
-                                   President of CIYOTA Chapter in Germany. Anja was born in 1974 in Germany and studied education to become a secondary school teacher. In 2009 she read an article about Munyambanza, co-founder and CIYOTA in a 
-                                </h2>
-                            </div>
-                            <button className="hover:bg-[#197996] w-40">
-                                <Link href="/anja">
-                                    Read More
-                                </Link>
-                            </button>
-                        </div>
+                    <div className="boxContainer md:flex flex flex-col md:space-x-2 md:justify-center md:flex-row">
+                            {chapters.map((chapter) => (
+                                <div className="box flex flex-col col-md" key={chapter._id}>
+                                    <div className="cardImage hidden md:flex">
+                                    <img src={chapter.photo} alt={chapter.name} className="w-full h-auto object-cover" />
+                                    </div>
+                                    <div className="programTitle px-5">
+                                    <span className="text-xl text-[#1f8cad]">{chapter.name}</span>
+                                    </div>
+                                    <div className="programDesc">
+                                    <h2>{chapter.description}</h2>
+                                    </div>
+                                    <button className="hover:bg-[#197996] w-40">
+                                    <Link href="/community">
+                                        Read More
+                                    </Link>
+                                    </button>
+                                </div>
+                            ))}
+                        {/* </div> */}
+                        {/* </div> */}
                         {/* Box ends here */}
 
                         <div className="box flex flex-col col-md">
