@@ -20,23 +20,32 @@ import educationImage from '../public/images/gallery/8.jpg'
 export default function HomePage() {
     const [isOpen, setIsOpen] = useState(false);
 
-    const [chapters, setChapters] = useState([]);
+    const [chapterDenmark, setChapterDenmark] = useState([]);
+
+    const fetchChapterDenmark = async () => {
+        try {
+        const response = await fetch('https://nalongo-dashboard-server.onrender.com/api/v1/chapter-denmark');
+        const data = await response.json();
+        setChapterDenmark(data);
+        } catch (error) {
+        console.error('Error fetching chapter-denmark:', error);
+        }
+    };
 
     useEffect(() => {
-      // Fetch data from the Model
-      axios.get('/api/denmark')
-        .then(response => {
-          setChapters(response.data);
-        })
-        .catch(error => {
-          console.error('Error fetching data:', error);
-        });
+        fetchChapterDenmark();
     }, []);
-
-    console.log(chapters);
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
+    };
+    // Helper function to truncate description
+    const truncateDescription = (description, wordLimit) => {
+        const words = description.split(' ');
+        if (words.length > wordLimit) {
+        return words.slice(0, wordLimit).join(' ') + '...';
+        }
+        return description;
     };
     return (
         <div className="scroll-smooth">
@@ -129,99 +138,25 @@ export default function HomePage() {
                         DENMARK
                     </h2>
 
-                    <div className="boxContainer md:flex flex flex-col md:space-x-2 md:justify-center md:flex-row">
-                            {chapters.map((chapter) => (
-                                <div className="box flex flex-col col-md" key={chapter._id}>
-                                    <div className="cardImage hidden md:flex">
-                                    <img src={chapter.photo} alt={chapter.name} className="w-full h-auto object-cover" />
+                    <div className="boxContainer md:flex flex flex-wrap md:flex-row">
+                            {chapterDenmark.map((chapter) => (
+                                <div className="box flex flex-col md:w-[300px] lg:w-[350px] xl:w-[400px] 2xl:w-[450px] p-4 md:max-w-[25%] md:p-4 hover:bg-gray-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer" key={chapter._id}>
+                                    <div className="">
+                                    <img src={chapter.photo} alt={chapter.name} className="w-full h-40 object-cover" style={{ height: "200px", width: "300px" }}/>
                                     </div>
                                     <div className="programTitle px-5">
                                     <span className="text-xl text-[#1f8cad]">{chapter.name}</span>
                                     </div>
                                     <div className="programDesc">
-                                    <h2>{chapter.description}</h2>
+                                     <h2>{truncateDescription(chapter.description, 30)}</h2>
                                     </div>
                                     <button className="hover:bg-[#197996] w-40">
-                                    <Link href="/community">
+                                    <Link href={`/anja/${chapter._id}`}>
                                         Read More
                                     </Link>
                                     </button>
                                 </div>
                             ))}
-                        {/* </div> */}
-                        {/* </div> */}
-                        {/* Box ends here */}
-
-                        <div className="box flex flex-col col-md">
-                            <div className="cardImage hidden md:flex"></div>
-                            <div className="programTitle px-5">
-                                <span className="text-xl text-[#1f8cad]">Christoph Schäper</span>
-                            </div>
-                            <div className="programDesc">
-                                <h2>He was born in 1974 in Germany and also studied education. He works as a secondary school teacher and is Anja's husband. Right from the beginning Christoph joined Anja in supporting CIYOTA and is an equal part in creating </h2>
-                                
-                            </div>
-                            <button className=" w-40">
-                                <Link href="/community">
-                                    Read More
-                                </Link>
-                            </button>
-                        </div>
-                        {/* Box ends here */}
-
-                        <div className="box flex flex-col col-md">
-                            <div className="cardImage hidden md:flex"></div>
-                            <div className="programTitle px-5">
-                            <span className="text-xl text-[#1f8cad]">Brigitte Reinhold</span>
-                            </div>
-                            <div className="programDesc">
-                                <h2>
-                                I was born in 1969 in Stuttgart, Germany. Since 2000 I am a teacher at the Goethe-School in Koblenz. At CIYOTA, I became aware of my colleague Anja and her husband, Christoph Schäper, whose commitment I had admired 
-                                </h2>
-                            </div>
-                            <button className=" w-40">
-                                <Link href="#">
-                                    Read More
-                                </Link>
-                            </button>
-                        </div>
-
-                        <div className="box flex flex-col col-md">
-                          <div className="cardImage hidden md:flex"></div>
-                            <div className="programTitle px-5">
-                            <span className="text-xl text-[#1f8cad]">Kristina Jehle</span>
-                            </div>
-                            <div className="programDesc">
-                                <h2>
-                                My name is Kristina Jehle, I was born in 1987 and work as a teacher in Koblenz / Germany. At CIYOTA I became aware of Anja, who has been supporting the organization for several years. I support CIYOTA because the organization
-                                </h2>
-                            </div>
-                            <button className=" w-40">
-                                <Link href="#">
-                                    Read More
-                                </Link>
-                            </button>
-                        </div>
-                        {/* Box ends here */}
-
-                        <div className="box flex flex-col col-md">
-                            <div className="cardImage hidden md:flex"></div>
-                            <div className="programTitle px-5">
-                            <span className="text-xl text-[#1f8cad]">Songul Walz</span>
-                            </div>
-                            <div className="programDesc">
-                                <h2>
-                                  I was born and raised in Izmir/Turkey in 1983. There I also studied philosophy. I came to Germany in 2008, learned German and started working as a Turkish teacher in 2010. I am the colleague of Anja Schäper, who 
-                                </h2>
-                            </div>
-                            <button className=" w-40">
-                                <Link href="#">
-                                    Read More
-                                </Link>
-                            </button>
-                        </div>
-                        {/* Box ends here */}
-
                     </div>
                     {/* Box container ends here */}
 

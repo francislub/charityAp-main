@@ -29,6 +29,27 @@ export default function HomePage() {
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
+    const router = useRouter();
+  const { id } = router.query;
+//   const [chapter, setChapter] = useState(null);
+
+  const [chapterDenmark, setChapterDenmark] = useState([]);
+
+    const fetchChapterDenmark = async () => {
+        try {
+        const response = await fetch('https://nalongo-dashboard-server.onrender.com/api/v1/chapter-denmark/${id}');
+        const data = await response.json();
+        setChapterDenmark(data);
+        } catch (error) {
+        console.error('Error fetching chapter-denmark:', error);
+        }
+    };
+
+    useEffect(() => {
+        fetchChapterDenmark();
+    }, [id]);
+
+  if (!chapter) return <p>Loading...</p>;
     return (
         <div className="scroll-smooth">
             <div className="fullContainer" id="homeSection">
@@ -101,23 +122,18 @@ export default function HomePage() {
             {/* Home section ends here */}
             <section className="programs" id="programsSection">
                 <div className="container mx-5">
+           
+                <div className="boxContainer md:flex flex-col md:flex-row md:space-x-12">
 
-                    <div className="boxContainer md:flex flex flex-col  md:justify-center md:space-x-12 md:flex-row">
-                        <div className="row">
-                            <div className="box flex flex-col">
-                                <div className="cardImage hidden md:flex">
-                                </div>
-                                <div className="programDesc">
-                                  <span className="text-xl text-[#1f8cad]">Anja Schäper</span>
-                                    <h1>
-                                    President of CIYOTA Chapter in Germany. Anja was born in 1974 in Germany and studied education to become a secondary school teacher. In 2009 she read an article about Munyambanza, co-founder and CIYOTA in a big German political magazine that moved her profoundly. Upon this she contacted Joseph and next to good friendships, her support for CIYOTA began. With this project Anja found something to support she was always looking for, especially in Africa. An NGO that was founded organized and lead by refugees FOR refugees who know best what, where and when something is needed. For Anja it was most important to find a project with a grassroot philosophy she could deeply trust: I know that every cent donated is effectively used for something important! Right from the beginning she integrated raising awareness for this project within her teachings. She realized quickly that it is more sustainable to raise money for the community of CIYOTA in Kyangwali, rather than sending school supplies from Germany. This is why she built a network in Germany to raise money as well collecting various goods (e.g. glasses) to send to Uganda. Above all, Anja's visits strengthened her part in the Ciyota family even more. 
-                                    </h1>
-                                </div>
-                            </div>
-                        </div>
-                        {/* Box ends here */}
-
+                    <div className="cardImage md:flex w-1/2"  key={chapter._id}>
+                        <img src={chapter.photo} alt={chapter.name} className="w-full h-auto object-cover" />
                     </div>
+                    <div className="programDesc w-1/2">
+                        <span className="text-xl text-[#1f8cad]">{chapter.name}</span>
+                        <h1>{chapter.description}</h1>
+                    </div>
+                </div>
+            
                     {/* Box container ends here */}
 
                 </div>
