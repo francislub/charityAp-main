@@ -4,27 +4,52 @@ import Link from "next/link";
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 import logoImage from '../public/images/logo1.png'
 import logoImage1 from '../public/icons/face.png'
 import logoImage2 from '../public/icons/ins.png'
 import logoImage3 from '../public/icons/link.png'
 import logoImage4 from '../public/icons/twi.png'
 import logoImage5 from '../public/icons/you.png'
-
-import bannerImage from '../public/images/1.jpg'
-import educationImage from '../public/images/gallery/8.jpg'
-import galleryImage1 from '../public/images/gallery/1.jpg'
-import galleryImage2 from '../public/images/gallery/2.jpg'
-import galleryImage3 from '../public/images/gallery/3.jpg'
-import galleryImage4 from '../public/images/gallery/4.jpg'
-import galleryImage5 from '../public/images/gallery/5.jpg'
-import galleryImage6 from '../public/images/gallery/6.jpg'
-import galleryImage7 from '../public/images/gallery/7.jpg'
-import galleryImage8 from '../public/images/gallery/8.jpg'
+import { useRouter, useSearchParams } from 'next/navigation';
 
 export default function HomePage() {
     const [isOpen, setIsOpen] = useState(false);
+
+    const [chapterSwitzerland, setChapterSwitzerland] = useState([]);
+
+    const router = useRouter();
+    const searchParams = useSearchParams();
+    const id = searchParams.get('id');
+
+    const fetchChapterSwitzerland = async () => {
+        try {
+        const response = await fetch(`https://nalongo-dashboard-server.onrender.com/api/v1/chapter-switzerland`);
+        const data = await response.json();
+        setChapterSwitzerland(data);
+        } catch (error) {
+        console.error('Error fetching chapter-switzerland:', error);
+        }
+    };
+
+    useEffect(() => {
+        fetchChapterSwitzerland();
+    }, []);
+    
+    // useEffect(() => {
+    //     if (id) {
+    //         fetchChapterswitzerland();
+    //     }
+    // }, [id]);
+
+    // Helper function to truncate description
+    const truncateDescription = (description, wordLimit) => {
+        const words = description.split(' ');
+        if (words.length > wordLimit) {
+        return words.slice(0, wordLimit).join(' ') + '...';
+        }
+        return description;
+    };
+
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -120,94 +145,26 @@ export default function HomePage() {
                        SWITZERLAND
                     </h2>
 
-                    <div className="boxContainer md:flex flex flex-col md:space-x-2  md:justify-center md:flex-row">
-
-                        <div className="box flex flex-col col-md">
-                            <div className="cardImage hidden md:flex"></div>
-                            <div className="programTitle px-5">
-                                <span className="text-xl text-[#1f8cad]">Anja Schäper</span>
-                            </div>
-                            <div className="programDesc">
-                                <h2>
-                                   President of CIYOTA Chapter in Germany. Anja was born in 1974 in Germany and studied education to become a secondary school teacher. In 2009 she read an article about Munyambanza, co-founder and CIYOTA in a 
-                                </h2>
-                            </div>
-                            <button className="hover:bg-[#197996] w-40">
-                                <Link href="/anja">
-                                    Read More
-                                </Link>
-                            </button>
-                        </div>
-                        {/* Box ends here */}
-
-                        <div className="box flex flex-col col-md">
-                            <div className="cardImage hidden md:flex"></div>
-                            <div className="programTitle px-5">
-                                <span className="text-xl text-[#1f8cad]">Christoph Schäper</span>
-                            </div>
-                            <div className="programDesc">
-                                <h2>He was born in 1974 in Germany and also studied education. He works as a secondary school teacher and is Anja's husband. Right from the beginning Christoph joined Anja in supporting CIYOTA and is an equal part in creating </h2>
-                                
-                            </div>
-                            <button className=" w-40">
-                                <Link href="/community">
-                                    Read More
-                                </Link>
-                            </button>
-                        </div>
-                        {/* Box ends here */}
-
-                        <div className="box flex flex-col col-md">
-                            <div className="cardImage hidden md:flex"></div>
-                            <div className="programTitle px-5">
-                            <span className="text-xl text-[#1f8cad]">Brigitte Reinhold</span>
-                            </div>
-                            <div className="programDesc">
-                                <h2>
-                                I was born in 1969 in Stuttgart, Germany. Since 2000 I am a teacher at the Goethe-School in Koblenz. At CIYOTA, I became aware of my colleague Anja and her husband, Christoph Schäper, whose commitment I had admired 
-                                </h2>
-                            </div>
-                            <button className=" w-40">
-                                <Link href="#">
-                                    Read More
-                                </Link>
-                            </button>
-                        </div>
-
-                        <div className="box flex flex-col col-md">
-                          <div className="cardImage hidden md:flex"></div>
-                            <div className="programTitle px-5">
-                            <span className="text-xl text-[#1f8cad]">Kristina Jehle</span>
-                            </div>
-                            <div className="programDesc">
-                                <h2>
-                                My name is Kristina Jehle, I was born in 1987 and work as a teacher in Koblenz / Germany. At CIYOTA I became aware of Anja, who has been supporting the organization for several years. I support CIYOTA because the organization
-                                </h2>
-                            </div>
-                            <button className=" w-40">
-                                <Link href="#">
-                                    Read More
-                                </Link>
-                            </button>
-                        </div>
-                        {/* Box ends here */}
-
-                        <div className="box flex flex-col col-md">
-                            <div className="cardImage hidden md:flex"></div>
-                            <div className="programTitle px-5">
-                            <span className="text-xl text-[#1f8cad]">Songul Walz</span>
-                            </div>
-                            <div className="programDesc">
-                                <h2>
-                                  I was born and raised in Izmir/Turkey in 1983. There I also studied philosophy. I came to Germany in 2008, learned German and started working as a Turkish teacher in 2010. I am the colleague of Anja Schäper, who 
-                                </h2>
-                            </div>
-                            <button className=" w-40">
-                                <Link href="#">
-                                    Read More
-                                </Link>
-                            </button>
-                        </div>
+                    <div className="boxContainer md:flex flex flex-wrap md:flex-row">
+                            {chapterSwitzerland.map((chapter) => (
+                                <div className="box flex flex-col md:w-[300px] lg:w-[350px] xl:w-[400px] 2xl:w-[450px] p-4 md:max-w-[25%] md:p-4 hover:bg-gray-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer" key={chapter._id}>
+                                    <div className="">
+                                    <img src={chapter.photo} alt={chapter.name} className="w-full h-40 object-cover" style={{ height: "200px", width: "300px" }}/>
+                                    </div>
+                                    <div className="programTitle px-5">
+                                    <span className="text-xl text-[#1f8cad]">{chapter.name}</span>
+                                    </div>
+                                    <div className="programDesc">
+                                     <h2>{truncateDescription(chapter.description, 30)}</h2>
+                                    </div>
+                                    <button className="hover:bg-[#197996] w-40">
+                                    <Link href={`/ala?id=${chapter._id}`}>
+                                        Read More
+                                    </Link>
+                                    </button>
+                                </div>
+                            ))}
+                    {/* </div> */}
                         {/* Box ends here */}
 
                     </div>

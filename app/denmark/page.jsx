@@ -39,11 +39,12 @@ export default function HomePage() {
     useEffect(() => {
         fetchChapterDenmark();
     }, []);
-    useEffect(() => {
-        if (id) {
-            fetchChapterDenmark();
-        }
-    }, [id]);
+    
+    // useEffect(() => {
+    //     if (id) {
+    //         fetchChapterDenmark();
+    //     }
+    // }, [id]);
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
