@@ -35,7 +35,7 @@ export default function HomePage() {
 
     const fetchChapterDenmark = async () => {
         try {
-        const response = await fetch('https://nalongo-dashboard-server.onrender.com/api/v1/chapter-denmark');
+        const response = await fetch('https://nalongo-dashboard-server.onrender.com/api/v1/chapter-denmark/${id}');
         const data = await response.json();
         setChapterDenmark(data);
         } catch (error) {
