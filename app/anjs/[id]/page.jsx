@@ -4,67 +4,45 @@ import Link from "next/link";
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Image from 'next/image';
-import logoImage from '../public/images/logo1.png'
-import logoImage1 from '../public/icons/face.png'
-import logoImage2 from '../public/icons/ins.png'
-import logoImage3 from '../public/icons/link.png'
-import logoImage4 from '../public/icons/twi.png'
-import logoImage5 from '../public/icons/you.png'
+import { useRouter } from 'next/navigation';
+import logoImage from '../../public/images/logo1.png'
+import logoImage1 from '../../public/icons/face.png'
+import logoImage2 from '../../public/icons/ins.png'
+import logoImage3 from '../../public/icons/link.png'
+import logoImage4 from '../../public/icons/twi.png'
+import logoImage5 from '../../public/icons/you.png'
 
-import bannerImage from '../public/images/1.jpg'
-import educationImage from '../public/images/gallery/8.jpg'
-import galleryImage1 from '../public/images/gallery/1.jpg'
-import galleryImage2 from '../public/images/gallery/2.jpg'
-import galleryImage3 from '../public/images/gallery/3.jpg'
-import galleryImage4 from '../public/images/gallery/4.jpg'
-import galleryImage5 from '../public/images/gallery/5.jpg'
-import galleryImage6 from '../public/images/gallery/6.jpg'
-import galleryImage7 from '../public/images/gallery/7.jpg'
-import galleryImage8 from '../public/images/gallery/8.jpg'
-import { useRouter, useSearchParams } from 'next/navigation';
-
-export default function HomePage() {
+export default function HomePage({params}) {
     const [isOpen, setIsOpen] = useState(false);
-
-    const [chapterGermany, setChapterGermany] = useState([]);
-    
-    let id = "";
-
-    const fetchChapterGermany = async () => {
-        try {
-        const response = await fetch(`https://nalongo-dashboard-server.onrender.com/api/v1/chapter-germany`);
-        const data = await response.json();
-        setChapterGermany(data);
-        } catch (error) {
-        console.error('Error fetching chapter-germany:', error);
-        }
-    };
-
-    useEffect(() => {
-        fetchChapterGermany();
-    }, []);
-    
-    // useEffect(() => {
-    //     if (id) {
-    //         fetchChapterDenmark();
-    //     }
-    // }, [id]);
-
-    // Helper function to truncate description
-    const truncateDescription = (description, wordLimit) => {
-        const words = description.split(' ');
-        if (words.length > wordLimit) {
-        return words.slice(0, wordLimit).join(' ') + '...';
-        }
-        return description;
-    };
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
+    const router = useRouter();
+
+  const [chapterSwitzerland, setChapterSwitzerland] = useState([]);
+
+    const fetchChapterSwitzerland = async () => {
+        try {
+        const response = await fetch('https://nalongo-dashboard-server.onrender.com/api/v1/chapter-switzerland');
+        const data = await response.json();
+        const filteredData = data.filter(item => item._id === params.id);
+        // console.log(filteredData);
+        setChapterSwitzerland(filteredData);
+        } catch (error) {
+        console.error('Error fetching chapter-switzerland:', error);
+        }
+        
+    };
+
+    useEffect(() => {
+        fetchChapterSwitzerland();
+    }, []);
+
+//   if (!chapter) return <p>Loading...</p>;
     return (
         <div className="scroll-smooth">
-            <div className="fullContainer bannerd" id="homeSection">
+            <div className="fullContainer" id="homeSection">
                 <header>
                     <div className="container">
                         <div className="logo">
@@ -113,7 +91,7 @@ export default function HomePage() {
                                         <div className="dropdown-content absolute hidden bg-white shadow-lg rounded-md">
                                             <Link href="/denmark" className="link block px-4 py-2 text-gray-700">DENMARK</Link>
                                             <Link href="/switzerland" className="link block px-4 py-2 text-gray-700">SWITZERLAND</Link>
-                                            <Link href="/germany" className="link block px-4 py-2 text-gray-700 bg-[#1f8cad] rounded-md">GERMANY</Link>
+                                            <Link href="/germany" className="link block px-4 py-2 text-gray-700">GERMANY</Link>
                                         </div>
                                     </li>
                                     <li>
@@ -130,52 +108,37 @@ export default function HomePage() {
                 </header>
                 {/* Header ends here */}
 
-                <div className="container">
-                    <h1>Chapters</h1>
-                    <p className="text-lg">
-                    
-                    </p>
-                    <button className="mb-5 hover:bg-[#197996]">
-                        <Link href="/sponsor">
-                            <span className="text-lg">Sponsor A Child Now</span>
-                        </Link>
-                    </button>
-                </div>
             </div>
             {/* Home section ends here */}
             <section className="programs" id="programsSection">
-                <div className="container">
-                    <h1><span>CIYOTA's approach to strengthening community engagement goes beyond local communities. We have friends around the world, who care and love our work to transform communities in Africa. We welcome these people and extend the opportunity to build the community. </span></h1>
-                    
-                </div>
                 <div className="container mx-5">
-                    <h2 className="sectionTitle text-[#1f8cad]">
-                       GERMANY
-                    </h2>
-
-                    <div className="boxContainer md:flex flex flex-wrap md:flex-row">
-                            {chapterGermany.map((chapter) => (
-                                <div className="box flex flex-col md:w-[300px] lg:w-[350px] xl:w-[400px] 2xl:w-[450px] p-4 md:max-w-[25%] md:p-4 hover:bg-gray-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer" key={chapter._id}>
-                                    <div className="">
-                                    <img src={chapter.photo} alt={chapter.name} className="w-full h-40 object-cover" style={{ height: "200px", width: "300px" }}/>
-                                    </div>
-                                    <div className="programTitle px-5">
-                                    <span className="text-xl text-[#1f8cad]">{chapter.name}</span>
-                                    </div>
-                                    <div className="programDesc">
-                                     <h2>{truncateDescription(chapter.description, 30)}</h2>
-                                    </div>
-                                    <button className="hover:bg-[#197996] w-40">
-                                    <Link href={`/anjg/${id=chapter._id}`}>
-                                        Read More
-                                    </Link>
-                                    </button>
-                                </div>
-                            ))}
-                    {/* </div> */}
-                        {/* Box ends here */}
-
+           
+                <div className="boxContainer md:flex flex-col md:flex-row md:space-x-12">
+                {chapterSwitzerland.map((chapter) => (
+                    <div className="box flex flex-col md:flex-row md:w-[600px] lg:w-[700px] xl:w-[800px] 2xl:w-[900px] p-4 md:max-w-[100%] md:p-4 hover:bg-gray-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer" key={chapter._id}>
+                        <div className="md:w-2/5">
+                            <img src={chapter.photo} alt={chapter.name} className="w-full h-40 object-cover" style={{ height: "100%", width: "100%" }}/>
+                        </div>
+                        <div className="programDetails md:w-3/5 px-5 flex flex-col">
+                            <div className="programTitle">
+                                <span className="text-xl text-[#1f8cad]">{chapter.name}</span>
+                            </div>
+                            <div className="programDesc">
+                                <h2>{chapter.description}</h2>
+                            </div>
+                        </div>
                     </div>
+                ))}
+
+                    {/* <div className="cardImage md:flex w-1/2"  key={chapterDenmark._id}>
+                        <img src={chapterDenmark.photo} alt={chapterDenmark.name} className="w-full h-auto object-cover" />
+                    </div>
+                    <div className="programDesc w-1/2">
+                        <span className="text-xl text-[#1f8cad]">{chapterDenmark.name}</span>
+                        <h1>{chapterDenmark.description}</h1>
+                    </div> */}
+                </div>
+            
                     {/* Box container ends here */}
 
                 </div>

@@ -16,10 +16,12 @@ export default function HomePage() {
     const [isOpen, setIsOpen] = useState(false);
 
     const [chapterSwitzerland, setChapterSwitzerland] = useState([]);
+    
+    let id = "";
 
-    const router = useRouter();
-    const searchParams = useSearchParams();
-    const id = searchParams.get('id');
+    // const router = useRouter();
+    // const searchParams = useSearchParams();
+    // const id = searchParams.get('id');
 
     const fetchChapterSwitzerland = async () => {
         try {
@@ -158,7 +160,7 @@ export default function HomePage() {
                                      <h2>{truncateDescription(chapter.description, 30)}</h2>
                                     </div>
                                     <button className="hover:bg-[#197996] w-40">
-                                    <Link href={`/ala?id=${chapter._id}`}>
+                                    <Link href={`/anjs/${id=chapter._id}`}>
                                         Read More
                                     </Link>
                                     </button>
@@ -262,10 +264,6 @@ export default function HomePage() {
                             <Image src={logoImage4} width={50} className="rounded-full pb-0 border-yellow-500 border-2 cursor-pointer hover:border-purple-500" alt="Logo Image"/>
                             <Image src={logoImage5} width={50} className="rounded-full pb-0 border-yellow-500 border-2 cursor-pointer hover:border-yellow-600" alt="Logo Image"/>
                         </div>
-
-
-
-
                         <span>Mailing address:</span>
                         <br />
                         <span>Phone:</span>

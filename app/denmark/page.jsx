@@ -20,11 +20,9 @@ import educationImage from '../public/images/gallery/8.jpg'
 export default function HomePage() {
     const [isOpen, setIsOpen] = useState(false);
 
-    const [chapterDenmark, setChapterDenmark] = useState([]);
+    let id = "";
 
-    const router = useRouter();
-    const searchParams = useSearchParams();
-    const id = searchParams.get('id');
+    const [chapterDenmark, setChapterDenmark] = useState([]);
 
     const fetchChapterDenmark = async () => {
         try {
@@ -161,7 +159,7 @@ export default function HomePage() {
                                      <h2>{truncateDescription(chapter.description, 30)}</h2>
                                     </div>
                                     <button className="hover:bg-[#197996] w-40">
-                                    <Link href={`/anja?id=${chapter._id}`}>
+                                    <Link href={`/anja/${id=chapter._id}`}>
                                         Read More
                                     </Link>
                                     </button>
