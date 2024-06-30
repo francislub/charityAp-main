@@ -21,6 +21,29 @@ import bannerImage from '../public/images/banner.jpg'
 export default function ProgramsPage() {
     const [isOpen, setIsOpen] = useState(false);
 
+    let id = "";
+
+    const [boardmember, setBoardmember] = useState([]);
+    const [leadershipTeam, setLeadershipTeam] = useState([]);
+
+    const fetchChapterTeam = async () => {
+        try {
+        const response = await fetch(`https://nalongo-dashboard-server.onrender.com/api/v1/leaders`);
+        const data = await response.json();
+        const leadershipTeam = data.filter(item => item.leaderShipType === "leadership-team");
+        const boardmember = data.filter(item => item.leaderShipType === "board-member");
+        setBoardmember(boardmember);
+        setLeadershipTeam(leadershipTeam);
+        } catch (error) {
+        console.error('Error fetching leaders:', error);
+        }
+    };
+
+    useEffect(() => {
+        fetchChapterTeam();
+    }, []);
+    
+
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
@@ -100,32 +123,19 @@ export default function ProgramsPage() {
                        Board Members
                     </h2>
                 </div>
-                
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
-                <Link href="/ala" className="section col-4" style={{ marginRight: '80px', cursor: 'pointer' }}>
-                    <div className="frame2 text-center">
-                        <Image className="rounded-circle2" src={educationImage3} alt="Education Image" />
-                        <h2><b>Benson Wereje</b></h2>
-                        <h3>CEO, ALA</h3>
-                    </div>
-                    <br /><br />
-                </Link>
-                <Link href="/ala" className="section col-4" style={{ marginRight: '80px' }}>
-                    <div className="frame2 text-center">
-                        <Image className="rounded-circle2" src={educationImage3} alt="Education Image" />
-                        <h2><b>Benson Wereje</b></h2>
-                        <h3>CEO, ALA</h3>
-                    </div>
-                    <br /><br />
-                </Link>
-                <Link href="/ala"ton className="section col-4">
-                    <div className="frame2 text-center">
-                        <Image className="rounded-circle2" src={educationImage3} alt="Education Image" />
-                        <h2><b>Benson Wereje</b></h2>
-                        <h3>CEO, ALA</h3>
-                    </div>
-                </Link>
-            </div>
+                <div className="boxContainer md:flex flex flex-wrap md:flex-row justify-center">  
+                    {boardmember.map((chapter) => (
+                        <div className={`flex justify-center hover:bg-gray-100 hover:scale-105 transition duration-300 ease-in-out `}>
+                            <Link href={`/ala/${id=chapter._id}`} className="section col-4" style={{ marginRight: '80px', cursor: 'pointer' }}>
+                                <div className="frame2 text-center p-4 border rounded shadow">
+                                    <img src={chapter.photo} alt={chapter.name} className="rounded-circle2"/>
+                                    <h2 className="mt-4 font-bold">{chapter.name}</h2>
+                                    <h3 className="mt-2">{chapter.position}</h3>
+                                </div>
+                            </Link>
+                        </div>
+                    ))}
+                </div>
 
             {/* </section> */}
 
@@ -135,59 +145,19 @@ export default function ProgramsPage() {
                        Senior Leadership Team
                     </h3>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <Link href="/ala" className="section col-4" style={{ marginRight: '80px' }}>
-                        <div className="frame2 text-center">
-                            <Image className="rounded-circle2" src={educationImage3} alt="Education Image" />
-                            <h2><b>Benson Wereje</b></h2>
-                            <h3>CEO, ALA</h3>
+                <div className="boxContainer md:flex flex flex-wrap md:flex-row justify-center"> 
+                    {leadershipTeam.map((chapter, index) => (
+                        <div key={index} className={`flex justify-center hover:bg-gray-100 hover:scale-105 transition duration-300 ease-in-out ${index % 4 === 0 }`}>
+                            <Link href={`/ala/${id=chapter._id}`} className="section col-4" style={{ marginRight: '80px', cursor: 'pointer' }}>
+                                <div className="frame2 text-center p-4 border rounded shadow">
+                                    <img src={chapter.photo} alt={chapter.name} className="rounded-circle2"/>
+                                    <h2 className="mt-4 font-bold">{chapter.name}</h2>
+                                    <h3 className="mt-2">{chapter.position}</h3>
+                                </div>
+                            </Link>
                         </div>
-                        <br /><br />
-                    </Link>
-                    <Link href="/ala" className="section col-4" style={{ marginRight: '80px' }}>
-                        <div className="frame2 text-center">
-                            <Image className="rounded-circle2" src={educationImage3} alt="Education Image" />
-                            <h2><b>Benson Wereje</b></h2>
-                            <h3>CEO, ALA</h3>
-                        </div>
-                        <br /><br />
-                    </Link>
-                    <Link href="/ala" className="section col-4">
-                        <div className="frame2 text-center">
-                            <Image className="rounded-circle2" src={educationImage3} alt="Education Image" />
-                            <h2><b>Benson Wereje</b></h2>
-                            <h3>CEO, ALA</h3>
-                        </div>
-                    </Link>
+                    ))}
                 </div>
-
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <Link href="/ala" className="section col-4" style={{ marginRight: '80px' }}>
-                        <div className="frame2 text-center">
-                            <Image className="rounded-circle2" src={educationImage3} alt="Education Image" />
-                            <h2><b>Benson Wereje</b></h2>
-                            <h3>CEO, ALA</h3>
-                        </div>
-                        <br /><br />
-                    </Link>
-                    <Link href="/ala" className="section col-4" style={{ marginRight: '80px' }}>
-                        <div className="frame2 text-center">
-                            <Image className="rounded-circle2" src={educationImage3} alt="Education Image" />
-                            <h2><b>Benson Wereje</b></h2>
-                            <h3>CEO, ALA</h3>
-                        </div>
-                        <br /><br />
-                    </Link>
-                    <Link href="/ala" className="section col-4">
-                        <div className="frame2 text-center">
-                            <Image className="rounded-circle2" src={educationImage3} alt="Education Image" />
-                            <h2><b>Benson Wereje</b></h2>
-                            <h3>CEO, ALA</h3>
-                        </div>
-                    </Link>
-                </div>
-            {/* About section ends here */}
-            
             <section className="join" id="joinSection">
                 <div className="container">
                     <div className="joinTitle">

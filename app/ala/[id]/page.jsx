@@ -5,31 +5,42 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import logoImage from '../public/images/logo1.png'
-import logoImage1 from '../public/icons/face.png'
-import logoImage2 from '../public/icons/ins.png'
-import logoImage3 from '../public/icons/link.png'
-import logoImage4 from '../public/icons/twi.png'
-import logoImage5 from '../public/icons/you.png'
+import logoImage from '../../public/images/logo1.png'
+import logoImage1 from '../../public/icons/face.png'
+import logoImage2 from '../../public/icons/ins.png'
+import logoImage3 from '../../public/icons/link.png'
+import logoImage4 from '../../public/icons/twi.png'
+import logoImage5 from '../../public/icons/you.png'
 
-import bannerImage from '../public/images/1.jpg'
-import educationImage from '../public/images/gallery/8.jpg'
-import galleryImage1 from '../public/images/gallery/1.jpg'
-import galleryImage2 from '../public/images/gallery/2.jpg'
-import galleryImage3 from '../public/images/gallery/3.jpg'
-import galleryImage4 from '../public/images/gallery/4.jpg'
-import galleryImage5 from '../public/images/gallery/5.jpg'
-import galleryImage6 from '../public/images/gallery/6.jpg'
-import galleryImage7 from '../public/images/gallery/7.jpg'
-import galleryImage8 from '../public/images/gallery/8.jpg'
-
-export default function HomePage() {
+export default function HomePage({params}) {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
+    const router = useRouter();
 
+    // const [boardmember, setBoardmember] = useState([]);
+    const [chapterTeam, setChapterTeam] = useState([]);
+
+    const fetchChapterTeam = async () => {
+        try {
+        const response = await fetch('https://nalongo-dashboard-server.onrender.com/api/v1/leaders');
+        const data = await response.json();
+        const filteredData = data.filter(item => item._id === params.id);
+        // console.log(filteredData);
+        setChapterTeam(filteredData);
+        } catch (error) {
+        console.error('Error fetching Leaders:', error);
+        }
+        
+    };
+
+    useEffect(() => {
+        fetchChapterTeam();
+    }, []);
+
+//   if (!chapter) return <p>Loading...</p>;
     return (
         <div className="scroll-smooth">
             <div className="fullContainer" id="homeSection">
@@ -102,29 +113,36 @@ export default function HomePage() {
             {/* Home section ends here */}
             <section className="programs" id="programsSection">
                 <div className="container mx-5">
-
-                    <div className="boxContainer md:flex flex flex-col  md:justify-center md:space-x-12 md:flex-row">
-                        <div className="row">
-                            <div className="box flex flex-col">
-                                
-                                <div className="programDesc">
-                                  <span className="text-xl text-[#1f8cad]">Chris Bradford</span>
-                                    <h1>
-                                      Chris Bradford is the Founder and CEO of African Leadership Academy. Chris brings a hybrid background in business and education to his work designing and building institutions of excellence. Chris previously worked in brand management at The Procter and Gamble Company and as a consultant with the Boston Consulting Group. He has also consulted to the Broad Foundation, one of the leading educational foundations in the United States, and taught economics and physics at Oundle School, one of the leading co-educational boarding schools in England. 
-                                    </h1>
-                                    <br />
-                                    <h1>At Oundle, Chris developed a keen interest in the design of educational institutions, and in the potential for educational institutions to shape societies. As a graduate student at Stanford University, Chris and colleague Fred Swaniker began to build African Leadership Academy, a pan-African institution that sought to address what they saw as the most important factor in Africa’s future development: the supply of ethical and entrepreneurial leaders across the continent.  </h1>
-                                    <br />
-                                    <h1>This work was validated in 2006, when Chris and Fred were named Echoing Green Fellows as two of the leading emerging social entrepreneurs in the world? Selected from over 900 organizations worldwide. Chris led the design of African Leadership Academy’s innovative curriculum, which merges rigorous academics with powerful courses in Entrepreneurial Leadership and African Studies. He also shaped the Academy’s admissions process, which has selected 400 young leaders from over 10,000 applicants in 48 nations since 2008. With its unique focus and pan-African reach, the Academy is unlike any other school in the world. </h1>
-                                    <br />
-                                    <h1>Chris holds a BA degree summa cum laude in Economics from Yale University and an MBA and MA in Education from Stanford University. At Yale, Chris won the Delaney Kiphuth Scholar-Athlete Award as the graduating varsity athlete ranking highest in scholarship. At Stanford’s Graduate School of Business, he was named a Siebel Scholar, a distinction given to five students for academic excellence and extracurricular leadership. In 2011, he won the inaugural Siebel Scholars Impact Award for his work developing African Leadership Academy. </h1>
-                                    
-                                </div>
+           
+                <div className="boxContainer md:flex flex-col md:flex-row md:space-x-12">
+                {chapterTeam.map((chapter) => (
+                    <div className="box flex flex-col md:flex-row md:w-[600px] lg:w-[700px] xl:w-[800px] 2xl:w-[900px] p-4 md:max-w-[100%] md:p-4 hover:bg-gray-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer" key={chapter._id}>
+                        <div className="md:w-2/5">
+                            <img src={chapter.photo} alt={chapter.name} className="w-full h-40 object-cover" style={{ height: "100%", width: "100%" }}/>
+                        </div>
+                        <div className="programDetails md:w-3/5 px-5 flex flex-col">
+                            <div className="programTitle">
+                                <span className="text-xl text-[#1f8cad]">{chapter.name}</span>
+                            </div>
+                            <div className="programTitle">
+                                <span className="text-xl text-[#1f8cad]">{chapter.position}</span>
+                            </div>
+                            <div className="programDesc">
+                                <h2>{chapter.description}</h2>
                             </div>
                         </div>
-                        {/* Box ends here */}
-
                     </div>
+                ))}
+
+                    {/* <div className="cardImage md:flex w-1/2"  key={chapterDenmark._id}>
+                        <img src={chapterDenmark.photo} alt={chapterDenmark.name} className="w-full h-auto object-cover" />
+                    </div>
+                    <div className="programDesc w-1/2">
+                        <span className="text-xl text-[#1f8cad]">{chapterDenmark.name}</span>
+                        <h1>{chapterDenmark.description}</h1>
+                    </div> */}
+                </div>
+            
                     {/* Box container ends here */}
 
                 </div>
