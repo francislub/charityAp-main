@@ -12,10 +12,6 @@ import logoImage2 from "../public/icons/ins.png";
 import logoImage3 from "../public/icons/link.png";
 import logoImage4 from "../public/icons/twi.png";
 import logoImage5 from "../public/icons/you.png";
-
-import educationImage1 from "../public/images/programs/1.jpg";
-import educationImage2 from "../public/images/programs/2.jpg";
-import educationImage3 from "../public/images/programs/3.jpg";
 import bannerImage from "../public/images/education1.jpg";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -31,7 +27,9 @@ export default function ProgramsPage() {
 
   const [children, setChildren] = useState([]);
   const [error, setError] = useState(null);
-
+  
+  let id = "";
+  
   useEffect(() => {
     const fetchChildren = async () => {
       try {
@@ -110,169 +108,39 @@ export default function ProgramsPage() {
       </div>
       {/* Home section ends here */}
 
-            <section className="fullContainer -mt-20" id="aboutSection">
-                <div className="container ">
-                    <h2 className="text-center">
-                        NALONGO FOUNDATION
-                    </h2>
-                    <h5 className="text-center">
-                        Choose below a child you would like to support
-                    </h5>
-                    <div className="space-y-10">
-                        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-6">
-                            <div className="col">
-                                    <div className="frame text-center background-color">
-                                        <Image className="rounded-circle" src={educationImage1} alt="Education Image" />
-                                        <Link href="/sponsorchild">
-                                           <button className="btn btn-primary mt-3 custom-button">Sponsor</button>
-                                        </Link>
-                                    </div>
-                            </div>
-                            <div className="col">
-                                    <div className="frame text-center background-color">
-                                        <Image className="rounded-circle" src={educationImage2} alt="Education Image" />
-                                        <Link href="/sponsorchild">
-                                           <button className="btn btn-primary mt-3 custom-button">Sponsor</button>
-                                        </Link>
-                                    </div>
-                            </div>
-                            <div className="col">
-                                <div className="frame text-center background-color">
-                                        <Image className="rounded-circle" src={educationImage3} alt="Education Image" />
-                                        <Link href="/sponsorchild">
-                                           <button className="btn btn-primary mt-3 custom-button">Sponsor</button>
-                                        </Link>
-                                    </div>
-                            </div>
-                            <div className="col">
-                                    <div className="frame text-center background-color">
-                                        <Image className="rounded-circle" src={educationImage3} alt="Education Image" />
-                                        <Link href="/sponsorchild">
-                                           <button className="btn btn-primary mt-3 custom-button">Sponsor</button>
-                                        </Link>
-                                    </div>
-                            </div>
-                            <div className="col">
-                                    <div className="frame text-center background-color">
-                                        <Image className="rounded-circle" src={educationImage3} alt="Education Image" />
-                                        <Link href="/sponsorchild">
-                                           <button className="btn btn-primary mt-3 custom-button">Sponsor</button>
-                                        </Link>
-                                    </div>
-                            </div>
-                            <div className="col">
-                                    <div className="frame text-center background-color">
-                                        <Image className="rounded-circle" src={educationImage3} alt="Education Image" />
-                                        <Link href="/sponsorchild">
-                                           <button className="btn btn-primary mt-3 custom-button">Sponsor</button>
-                                        </Link>
-                                    </div>
-                            </div>
-                        </div>
-                        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-6">
-                            <div className="col">
-                                    <div className="frame text-center background-color">
-                                        <Image className="rounded-circle" src={educationImage3} alt="Education Image" />
-                                        <Link href="/sponsorchild">
-                                           <button className="btn btn-primary mt-3 custom-button">Sponsor</button>
-                                        </Link>
-                                    </div>
-                            </div>
-                            <div className="col">
-                                    <div className="frame text-center background-color">
-                                        <Image className="rounded-circle" src={educationImage3} alt="Education Image" />
-                                        <Link href="/sponsorchild">
-                                           <button className="btn btn-primary mt-3 custom-button">Sponsor</button>
-                                        </Link>
-                                    </div>
-                            </div>
-                            <div className="col">
-                                <div className="frame text-center background-color">
-                                        <Image className="rounded-circle" src={educationImage3} alt="Education Image" />
-                                        <Link href="/sponsorchild">
-                                           <button className="btn btn-primary mt-3 custom-button">Sponsor</button>
-                                        </Link>
-                                    </div>
-                            </div>
-                            <div className="col">
-                                    <div className="frame text-center background-color">
-                                        <Image className="rounded-circle" src={educationImage3} alt="Education Image" />
-                                        <Link href="/sponsorchild">
-                                           <button className="btn btn-primary mt-3 custom-button">Sponsor</button>
-                                        </Link>
-                                    </div>
-                            </div>
-                            <div className="col">
-                                    <div className="frame text-center background-color">
-                                        <Image className="rounded-circle" src={educationImage3} alt="Education Image" />
-                                        <Link href="/sponsorchild">
-                                           <button className="btn btn-primary mt-3 custom-button">Sponsor</button>
-                                        </Link>
-                                    </div>
-                            </div>
-                            <div className="col">
-                                    <div className="frame text-center background-color">
-                                        <Image className="rounded-circle" src={educationImage3} alt="Education Image" />
-                                        <Link href="/sponsorchild">
-                                           <button className="btn btn-primary mt-3 custom-button">Sponsor</button>
-                                        </Link>
-                                    </div>
-                            </div>
-                        </div>
-                        {/* <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-6">
-                            <div className="col">
-                                    <div className="frame text-center background-color">
-                                        <Image className="rounded-circle" src={educationImage3} alt="Education Image" />
-                                        <Link href="/sponsorchild">
-                                           <button className="btn btn-primary mt-3 custom-button">Sponsor</button>
-                                        </Link>
-                                    </div>
-                            </div>
-                            <div className="col">
-                                    <div className="frame text-center background-color">
-                                        <Image className="rounded-circle" src={educationImage3} alt="Education Image" />
-                                        <Link href="/sponsorchild">
-                                           <button className="btn btn-primary mt-3 custom-button">Sponsor</button>
-                                        </Link>
-                                    </div>
-                            </div>
-                            <div className="col">
-                                <div className="frame text-center background-color">
-                                        <Image className="rounded-circle" src={educationImage3} alt="Education Image" />
-                                        <Link href="/sponsorchild">
-                                           <button className="btn btn-primary mt-3 custom-button">Sponsor</button>
-                                        </Link>
-                                    </div>
-                            </div>
-                            <div className="col">
-                                    <div className="frame text-center background-color">
-                                        <Image className="rounded-circle" src={educationImage3} alt="Education Image" />
-                                        <Link href="/sponsorchild">
-                                           <button className="btn btn-primary mt-3 custom-button">Sponsor</button>
-                                        </Link>
-                                    </div>
-                            </div>
-                            <div className="col">
-                                    <div className="frame text-center background-color">
-                                        <Image className="rounded-circle" src={educationImage3} alt="Education Image" />
-                                        <Link href="/sponsorchild">
-                                           <button className="btn btn-primary mt-3 custom-button">Sponsor</button>
-                                        </Link>
-                                    </div>
-                            </div>
-                            <div className="col">
-                                    <div className="frame text-center background-color">
-                                        <Image className="rounded-circle" src={educationImage3} alt="Education Image" />
-                                        <Link href="/sponsorchild">
-                                           <button className="btn btn-primary mt-3 custom-button">Sponsor</button>
-                                        </Link>
-                                    </div>
-                            </div>
-                        </div> */}
-                    </div>
+      <section className="fullContainer -mt-20" id="aboutSection">
+        <div className="container ">
+          <h2 className="text-center">NALONGO FOUNDATION</h2>
+          <h5 className="text-center">
+            Choose below a child you would like to support
+          </h5>
+          <div className="space-y-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 md:gap-2 justify-center items-center text-center">
+              {children.map((child) => (
+                <div key={child._id}>
+                  <div className="frame text-center h-[280px] background-color flex flex-col justify-center items-center">
+                    <Image
+                      className="rounded-xl w-[150px] h-[150px]"
+                      src={child.photo}
+                      alt="Education Image"
+                      width={100}
+                      height={100}
+                      objectFit="contain"
+                    />
+                    <Link href={`/sponsorchild/${id=child._id}`}>
+                      <button className="btn btn-primary mt-3 custom-button">
+                        Sponsor
+                      </button>
+                    </Link>
+                    <p>{child.name}</p>
+                  </div>
                 </div>
-            </section>
-            {/* About section ends here */}
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* About section ends here */}
 
       <footer className="">
         <div className="container flex md:flex-row md:justify-between md:space-x-10 space-y-5 flex-col">
