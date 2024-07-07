@@ -28,6 +28,25 @@ function scrollToSection(sectionId) {
 
 export default function ProgramsPage() {
     const aboutSectionRef = useRef(null);
+
+    let id = "";
+
+    const [chapterChild, setChapterChild] = useState([]);
+
+    const fetchChapterChild = async () => {
+        try {
+        const response = await fetch(`https://nalongo-dashboard-server.onrender.com/api/v1/chapter-denmark`);
+        const data = await response.json();
+        setChapterChild(data);
+        } catch (error) {
+        console.error('Error fetching child:', error);
+        }
+    };
+
+    useEffect(() => {
+        fetchChapterChild();
+    }, []);
+    
    
     return (
         <div className="scroll-smooth text-gray-800">
@@ -80,6 +99,17 @@ export default function ProgramsPage() {
                     </h5>
                     <div className="space-y-10">
                         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-6">
+                           {chapterChild.map((chapter) => (
+                                <div className="box flex flex-col md:w-[300px] lg:w-[350px] xl:w-[400px] 2xl:w-[450px] p-4 md:max-w-[25%] md:p-4 hover:bg-gray-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer" key={chapter._id}>
+{/*                                    
+                                    <Image className="rounded-circle" src={chapter.photo} alt={chapter.name} width={100} height={100} /> */}
+                                        
+                                    <Link href={`/sponsorchild/${id=chapter._id}`}>
+                                       <button className="btn btn-primary mt-3 custom-button">Sponsor</button>
+                                    </Link>
+                                </div>
+                            ))}
+                            
                             <div className="col">
                                     <div className="frame text-center background-color">
                                         <Image className="rounded-circle" src={educationImage1} alt="Education Image" />

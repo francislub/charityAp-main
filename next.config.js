@@ -10,6 +10,17 @@ const nextConfig = {
   
       return config;
     },
+
+    images: {
+      remotePatterns: [
+        {
+          protocol: 'https',
+          hostname: '*.cloudinary.com',
+          port: '',
+          pathname: '/**',
+        },
+      ],
+    },
   };
   
   module.exports = nextConfig;
