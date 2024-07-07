@@ -13,9 +13,6 @@ import logoImage2 from '../../public/icons/ins.png'
 import logoImage3 from '../../public/icons/link.png'
 import logoImage4 from '../../public/icons/twi.png'
 import logoImage5 from '../../public/icons/you.png'
-import educationImage1 from '../../public/images/programs/1.jpg';
-import educationImage2 from '../../public/images/programs/2.jpg';
-import educationImage3 from '../../public/images/programs/3.jpg';
 import bannerImage from '../../public/images/education1.jpg'
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import { connect } from '../../dbConfig/dbConfig';
@@ -30,110 +27,46 @@ function scrollToSection(sectionId) {
 export default function ProgramsPage({params}) {
     const aboutSectionRef = useRef(null);
 
-// Mark the component as a client entry
-// useClient();
+    const [children, setChildren] = useState([]);
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [error, setError] = useState(null);
 
-// const students = [
-//     {
-//         name: "Jemima Katabuka",
-//         studentId: "C13 - 2",
-//         gender: "Female",
-//         age: 18,
-//         class: 9,
-//         nationality: "Refugee",
-//         parentStatus: "Orphan",
-//         levelOfNeed: "High",
-//         yearsLeftToGraduate: -2,
-//         description: "Jemima came from DRC in 2019. She lost her Father in the war and came to Uganda with her mother. She had no shelter. She slept in the church. Few days later her mother also passed away and was left a total orphan without even a single family member or relative. A pastor of the church where the mother used to worship from provided her with shelter. Another church member offered to live with her. She took care of Jamima and her sisters for a short time and later left her and her sisters. katabuka Jemima is the elder sister aged of 15 among her 2 other sisters. They currently live with another kind hearted lady who offered to help as a guardian but is unable to pay their school fees.",
-//         image: educationImage1
-//     },
-//     {
-//         name: "Wivine Aifa",
-//         studentId: " C13 - 35",
-//         gender: "Female",
-//         age: 19,
-//         class: 9,
-//         nationality: "Refugee",
-//         parentStatus: "Both parents",
-//         levelOfNeed: "High",
-//         yearsLeftToGraduate: -2,
-//         description: "Aifa’s from a large family and the third child of eleven children. Her father works as a sales clerk at a drug store and her mother sells goods at the market.Aifa likes to sing and dance. She especially enjoys to dance and would love to promote her cultural dance. In the future, she wants to become a teacher and would love to teach children.",
-//         image: educationImage2
-//     },
-//     {
-//         name: "Alice Nyirahabimana",
-//         studentId: " C13 - 2",
-//         gender: "Female",
-//         age: 17,
-//         class: 9,
-//         nationality: "Refugee",
-//         parentStatus: "Both parents",
-//         levelOfNeed: "High",
-//         yearsLeftToGraduate: -2,
-//         description: "Alice is the fourth child born in a family of seven children. Her parents work on their small farm plot and struggle to find jobs to provide supplemental income to their family.Alice likes to sing and dance. However, her favorite activity is playing netball because she likes the exercise and wants to be a world class netballer. In the future, she wants to become a nurse and work in a hospital where she can help treat people.",
-//         image: educationImage3
-//     },
-//     {
-//         name: "Aminah Tushabe",
-//         studentId: " C13 - 3",
-//         gender: "Female",
-//         age: 21,
-//         class: 9,
-//         nationality: "Refugee",
-//         parentStatus: "Single mother",
-//         levelOfNeed: "High",
-//         yearsLeftToGraduate: -2,
-//         image: educationImage1,
-//         description: "Amina is Congolese and the only child of a single mother. Amina likes to dance and sing. She especially enjoys singing because the songs usually lifts up her spirits and makes her feel happier. She wants to become a doctor in the future so she can help her community and treat sick people."
-    
-//     }
-// ];
-// const StudentProfile = () => {
-    // const [currentStudentIndex, setCurrentStudentIndex] = useState(0);
+    useEffect(() => {
+        const fetchChildren = async () => {
+            try {
+                const response = await fetch(
+                    "https://nalongo-dashboard-server.onrender.com/api/v1/children",
+                    {
+                        method: "GET",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                    }
+                );
 
-    // const handleNext = () => {
-    //     setCurrentStudentIndex((prevIndex) => (prevIndex + 1) % students.length);
-    // };
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
 
-    // const handlePrevious = () => {
-    //     setCurrentStudentIndex((prevIndex) => (prevIndex - 1 + students.length) % students.length);
-    // };
+                const data = await response.json();
+                const filteredData = data.filter(item => item._id === params.id);
+                
+                setChildren(filteredData);
+            } catch (err) {
+                setError(err.message);
+            }
+        };
 
-    // const currentStudent = students[currentStudentIndex];
+        fetchChildren();
+    }, [params.id]);
 
-
-  const [children, setChildren] = useState([]);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const fetchChildren = async () => {
-      try {
-        const response = await fetch(
-          "https://nalongo-dashboard-server.onrender.com/api/v1/children",
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-
-        const data = await response.json();
-        const filteredData = data.filter(item => item._id === params.id);
-        
-        // const reversedData = data.slice(0).reverse();
-        setChildren(filteredData);
-      } catch (err) {
-        setError(err.message);
-      }
+    const handleNext = () => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % children.length);
     };
 
-    fetchChildren();
-  }, []);
+    const handlePrevious = () => {
+        setCurrentIndex((prevIndex) => (prevIndex - 1 + children.length) % children.length);
+    };
 
     return (
         <div className="scroll-smooth text-gray-800">
@@ -189,40 +122,42 @@ export default function ProgramsPage({params}) {
                     <div className="space-y-20">
                         <div className="row background-color row-cols-1 row-cols-sm-2">
                             <div className="col">
+                            {error && <p>{error}</p>}
+                            {children.length > 0 && (
                                 <div className='row'>
-                                {children.map((child) => (
-                                    <div className="col-5">
+                                {/* {children.map((child) => ( */}
+                                    <div className="col-5 flex flex-col lg:flex-row">
                                         <br />
-                                        {/* <Image className="" src={currentStudent.image} /> */}
-                                        <img src={child.photo} alt={child.name} className=""/>
+                                        <img src={children[currentIndex].photo} alt={children[currentIndex].name} className="" />
+                    
                                     </div>
-                                    ))}
-                                    {children.map((child) => (
                                     <div className="col-7">
                                         <br />
                                         <h2>About</h2>
-                                        <h5><b>Name: </b>{child.name}</h5>
-                                        <h5><b>Student ID:</b>  </h5>
+                                        <h5><b>Name: </b>{children[currentIndex].name}</h5>
+                                        <h5><b>Student ID:</b> </h5>
                                         <h5><b>Gender:</b> </h5>
                                         <h5><b>Age:</b> </h5>
                                         <h5><b>Class:</b> </h5>
                                         <h5><b>Nationality:</b> </h5>
                                         <h5><b>Parent Status:</b> </h5>
-                                        <h5><b>Level of Need: </b>{child.levelOfNeed}</h5>
+                                        <h5><b>Level of Need: </b>{children[currentIndex].levelOfNeed}</h5>
                                         <h5><b>Years left to graduate: </b> </h5>
+                                    
                                     </div>
-                                    ))}
                                 </div>
-                                {children.map((child) => (
+                               )}
+                                {children.length > 0 && (
                                 <div>
-                                    <h5>{child.description}</h5>
+                                    <h5>{children[currentIndex].description}</h5>
                                 </div>
-                                ))}
+                                )}
                                 
                             
                                 <div className="button-container">
-                                <button className="previous rounded" >Previous</button>
-                                <button className="next rounded" >Next</button>
+                                <button className="previous rounded" onClick={handlePrevious}>Previous</button>
+                                <button className="next rounded" onClick={handleNext}>Next</button>
+                
                                     <Link href="/sponsor">
                                         <button className="close rounded" >
                                         Close
@@ -232,9 +167,9 @@ export default function ProgramsPage({params}) {
                                 </div>
                             </div>
                             <div className="col">
-                            {children.map((child) => (
-                                <h2>Sponsor {child.name}</h2>
-                            ))}
+                            {children.length > 0 && (
+                                <h2>Sponsor {children[currentIndex].name}</h2>
+                            )}
                                 <div className="frame">
                                     <div className="frame1 text-center">
                                         <div className="row background-color1">
@@ -246,9 +181,9 @@ export default function ProgramsPage({params}) {
                                              </div>
                                         </div>
                                     </div>
-                                    {children.map((child) => (
-                                        <h4>Sponsor {child.name}</h4>
-                                    ))}
+                                    {children.length > 0 && (
+                                        <h2>Sponsor {children[currentIndex].name}</h2>
+                                    )}
                                         <h5><b>with</b></h5>
                                     
                                                <div className="buttonContainer">
