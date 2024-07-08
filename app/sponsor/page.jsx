@@ -12,10 +12,6 @@ import logoImage2 from "../public/icons/ins.png";
 import logoImage3 from "../public/icons/link.png";
 import logoImage4 from "../public/icons/twi.png";
 import logoImage5 from "../public/icons/you.png";
-
-import educationImage1 from "../public/images/programs/1.jpg";
-import educationImage2 from "../public/images/programs/2.jpg";
-import educationImage3 from "../public/images/programs/3.jpg";
 import bannerImage from "../public/images/education1.jpg";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -31,7 +27,9 @@ export default function ProgramsPage() {
 
   const [children, setChildren] = useState([]);
   const [error, setError] = useState(null);
-
+  
+  let id = "";
+  
   useEffect(() => {
     const fetchChildren = async () => {
       try {
@@ -129,7 +127,7 @@ export default function ProgramsPage() {
                       height={100}
                       objectFit="contain"
                     />
-                    <Link href="/sponsorchild">
+                    <Link href={`/sponsorchild/${id=child._id}`}>
                       <button className="btn btn-primary mt-3 custom-button">
                         Sponsor
                       </button>
