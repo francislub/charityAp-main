@@ -30,16 +30,14 @@ export default function HomePage() {
                 <header>
                     <div className="container">
                     <Link href="/">
-                        <a className="logo">
-                            <Image 
-                            src={logoImage} 
-                            height={100} 
-                            width={100} // Add width to prevent layout shift
-                            alt="Foundation Logo" 
-                            className="rounded-md"
-                            />
-                        </a>
-                        </Link>
+                        <Image 
+                        src={logoImage} 
+                        height={100} 
+                        width={100} // Add width to prevent layout shift
+                        alt="Foundation Logo" 
+                        className="rounded-md"
+                        />
+                    </Link>
 
                         <nav className="pt-5 relative">
                             <div className="flex items-center justify-between px-4 py-3 md:flex md:space-x-4">

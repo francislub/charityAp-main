@@ -46,7 +46,6 @@ export default function HomePage({params}) {
                 <header>
                     <div className="container">
                     <Link href="/">
-                    <a className="logo">
                         <Image 
                         src={logoImage} 
                         height={100} 
@@ -54,7 +53,6 @@ export default function HomePage({params}) {
                         alt="Foundation Logo" 
                         className="rounded-md"
                         />
-                    </a>
                     </Link>
 
                         <nav className="pt-5 relative">

@@ -29,7 +29,6 @@ export default function ProgramsPage() {
                 <header>
                     <div className="container">
                     <Link href="/">
-                    <a className="logo">
                         <Image 
                         src={logoImage} 
                         height={100} 
@@ -37,7 +36,6 @@ export default function ProgramsPage() {
                         alt="Foundation Logo" 
                         className="rounded-md"
                         />
-                    </a>
                     </Link>
 
                         <nav className="pt-5 relative">
