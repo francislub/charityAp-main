@@ -52,13 +52,17 @@ export default function ProgramsPage() {
 
                 <header>
                     <div className="container">
-                        <div className="logo">
+                    <Link href="/">
+                        <a className="logo">
                             <Image 
-                                src={logoImage} 
-                                height={100} 
-                                alt="Foundation Logo" 
-                                className="rounded-md"/>
-                        </div>
+                            src={logoImage} 
+                            height={100} 
+                            width={100} // Add width to prevent layout shift
+                            alt="Foundation Logo" 
+                            className="rounded-md"
+                            />
+                        </a>
+                        </Link>
                         <h1><span>Meet Our Team </span></h1>
                         <nav className="pt-5 relative">
                             <div className="flex items-center justify-between px-4 py-3 md:flex md:space-x-4">
