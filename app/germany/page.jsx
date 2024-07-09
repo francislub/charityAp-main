@@ -67,13 +67,17 @@ export default function HomePage() {
             <div className="fullContainer bannerd" id="homeSection">
                 <header>
                     <div className="container">
-                        <div className="logo">
+                    <Link href="/">
+                        <a className="logo">
                             <Image 
-                                src={logoImage} 
-                                height={100} 
-                                alt="Foundation Logo" 
-                                className="rounded-md"/>
-                        </div>
+                            src={logoImage} 
+                            height={100} 
+                            width={100} // Add width to prevent layout shift
+                            alt="Foundation Logo" 
+                            className="rounded-md"
+                            />
+                        </a>
+                        </Link>
 
                         <nav className="pt-5 relative">
                             <div className="flex items-center justify-between px-4 py-3 md:flex md:space-x-4">
@@ -91,7 +95,7 @@ export default function HomePage() {
                                 </div>
                                 <ul className={`mt-4 md:mt-0 md:flex md:space-x-4 ${isOpen ? 'block' : 'hidden'}`}>
                                     <li className="dropdown relative">
-                                        <a href="/" className="dropbtn link ">ABOUT</a>
+                                        <a href="#" className="dropbtn link ">ABOUT</a>
                                         <div className="dropdown-content absolute hidden bg-white shadow-lg rounded-md">
                                             <Link href="/about" className="link block px-4 py-2 text-gray-700">WHO WE ARE</Link>
                                             <Link href="/wedo" className="link block px-4 py-2 text-gray-700">WHAT WE DO</Link>
