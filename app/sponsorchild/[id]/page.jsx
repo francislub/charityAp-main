@@ -253,7 +253,7 @@ export default function ProgramsPage({ searchParams }) {
                               layout: "horizontal",
                             }}
                             createOrder={async () => {
-                              const res = await fetch("api/checkout", {
+                              const res = await fetch("api/checkout-100", {
                                 method: "POST",
                               });
                               const order = await res.json();
@@ -285,7 +285,7 @@ export default function ProgramsPage({ searchParams }) {
                               layout: "horizontal",
                             }}
                             createOrder={async () => {
-                              const res = await fetch("api/checkout", {
+                              const res = await fetch("api/checkout-150", {
                                 method: "POST",
                               });
                               const order = await res.json();
