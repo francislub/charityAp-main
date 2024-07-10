@@ -26,8 +26,6 @@ export default function ProgramsPage({ searchParams }) {
   const aboutSectionRef = useRef(null);
 
   const [children, setChildren] = useState([]);
-  const [allChildren, setAllChildren] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -51,7 +49,6 @@ export default function ProgramsPage({ searchParams }) {
 
         const filteredData = data.filter((item) => item._id === searchParams.id);
 
-        setAllChildren(data);
         setChildren(filteredData);
       } catch (err) {
         setError(err.message);
@@ -60,16 +57,6 @@ export default function ProgramsPage({ searchParams }) {
 
     fetchChildren();
   }, [searchParams]);
-
-  const page = searchParams["page"] ?? "1";
-  const per_page = searchParams["per_page"] ?? "1";
-
-  // mocked, skipped and limited in the real app
-  const start = (Number(page) - 1) * Number(per_page);
-  const end = start + Number(per_page);
-
-  const entries = allChildren.slice(start, end);
-  const length = allChildren.length;
 
   return (
     <div className="scroll-smooth text-gray-800">
@@ -142,14 +129,17 @@ export default function ProgramsPage({ searchParams }) {
             <div className="row background-color row-cols-1 row-cols-sm-2">
               <div className="col">
                 {error && <p>{error}</p>}
-                {children.length > 0 && (
                   <div className="row">
-                    {/* {children.map((child) => ( */}
+                    {/* {children.map((child) => (
+                      <div key={child._id}>
+
+                      </div>
+                    ))} */}
                     <div className="col-5 flex flex-col lg:flex-row">
                       <br />
                       <img
-                        src={children[currentIndex].photo}
-                        alt={children[currentIndex].name}
+                        src={children.photo}
+                        alt={children.name}
                         className=""
                       />
                     </div>
@@ -158,7 +148,7 @@ export default function ProgramsPage({ searchParams }) {
                       <h2>About</h2>
                       <h5>
                         <b>Name: </b>
-                        {children[currentIndex].name}
+                        {children.name}
                       </h5>
                       <h5>
                         <b>Student ID:</b>{" "}
@@ -180,33 +170,25 @@ export default function ProgramsPage({ searchParams }) {
                       </h5>
                       <h5>
                         <b>Level of Need: </b>
-                        {children[currentIndex].levelOfNeed}
+                        {children.levelOfNeed}
                       </h5>
                       <h5>
                         <b>Years left to graduate: </b>{" "}
                       </h5>
                     </div>
                   </div>
-                )}
-                {children.length > 0 && (
                   <div>
-                    <h5>{children[currentIndex].description}</h5>
+                    <h5>{children.description}</h5>
                   </div>
-                )}
 
                 <div className="button-container">
-                  <button className="previous rounded">Previous</button>
-                  <button className="next rounded">Next</button>
-
-                  <Link href="/sponsor">
-                    <button className="close rounded">Close</button>
+                  <Link href="/sponsoranychild">
+                    <button className="close rounded text-[18px]">Sponsor Any Other Child</button>
                   </Link>
                 </div>
               </div>
               <div className="col">
-                {children.length > 0 && (
-                  <h2>Sponsor {children[currentIndex].name}</h2>
-                )}
+                  <h2>Sponsor {children.name}</h2>
                 <div className="frame">
                   <div className="frame1 text-center">
                     <div className="row background-color1">
@@ -218,9 +200,7 @@ export default function ProgramsPage({ searchParams }) {
                         </div>
                       </div>
                     </div>
-                    {children.length > 0 && (
-                      <h2>Sponsor {children[currentIndex].name}</h2>
-                    )}
+                      <h2>Sponsor {children.name}</h2>
                     <h5>
                       <b>with</b>
                     </h5>
@@ -329,19 +309,6 @@ export default function ProgramsPage({ searchParams }) {
               </div>
             </div>
           </div>
-        </div>
-
-        <div className="flex flex-col gap-2 items-center">
-          {entries.map((entry) => (
-            <p key={entry}>{entry.name}</p>
-          ))}
-
-          <PaginationControls
-            hasNextPage={end < allChildren.length}
-            hasPrevPage={start > 0}
-            childId={searchParams.id}
-            length={length}
-          />
         </div>
       </section>
       {/* About section ends here */}
