@@ -68,8 +68,8 @@ export default function ProgramsPage() {
         className="rounded-md"
       />
       <div className="" id="homeSection">
-        <div class="row background-color">
-          <div class="col-lg-7">
+        <div className="flex flex-col lg:flex-row background-color lg:gap-5">
+          <div className="">
             <div>
               <Image
                 src={bannerImage}
@@ -79,27 +79,28 @@ export default function ProgramsPage() {
               />
             </div>
           </div>
-          <div class="col-lg-5">
+          <div className="mx-2">
             <br />
             <h1>
               <span>Sponsor A Child</span>
             </h1>
-            <h4 class="text-1g">
-              Help us keep refugee children in School. Below is the cost of
+            <h4 className="text-[18px] md:text-1g">
+              Help us keep refugee children in School.<br className="md:hidden block"/>
+              Below is the cost of
               education per child per year:
             </h4>
             <br />
-            <h5>$200 : Covers tuition per child per year </h5>
-            <h5>$50 : Covers meals per child per year </h5>
-            <h5>$20 : Covers books per child per year </h5>
-            <h5>$30 : Covers school uniform per child </h5>
+            <h5 className="text-[18px]">$200 : Covers tuition per child per year </h5>
+            <h5 className="text-[18px]">$50 : Covers meals per child per year </h5>
+            <h5 className="text-[18px]">$20 : Covers books per child per year </h5>
+            <h5 className="text-[18px]">$30 : Covers school uniform per child </h5>
             <div>
               <Link href="#aboutSection">
                 <button className="green-button">Sponsor A Child</button>
               </Link>
             </div>
             <div>
-              <button class="blue-button">Give to a different cause</button>
+              <button className="blue-button">Give to a different cause</button>
             </div>
             <br />
             <br />
