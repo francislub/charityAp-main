@@ -49,9 +49,9 @@ export default function ProgramsPage({ searchParams }) {
 
         const data = await response.json();
 
-        const filteredData = data.filter((item) => item._id === searchParams.id);
-
-        setAllChildren(data);
+        const filteredData = data.filter(item => item._id === searchParams.id);
+        console.log(filteredData)
+        setAllChildren(data); 
         setChildren(filteredData);
       } catch (err) {
         setError(err.message);
@@ -148,7 +148,7 @@ export default function ProgramsPage({ searchParams }) {
                     <div className="col-5 flex flex-col lg:flex-row">
                       <br />
                       <img
-                        src={children[currentIndex].photo}
+                        src={children.photo}
                         alt={children[currentIndex].name}
                         className=""
                       />
