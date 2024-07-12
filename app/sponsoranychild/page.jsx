@@ -1,9 +1,8 @@
 "use client";
 import { useRef } from "react";
-
-import Link from "next/link";
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import logoImage from "../public/images/logo1.png";
@@ -14,6 +13,7 @@ import logoImage4 from "../public/icons/twi.png";
 import logoImage5 from "../public/icons/you.png";
 import bannerImage from "../public/images/education1.jpg";
 import "bootstrap/dist/css/bootstrap.min.css";
+import PaginationControls from "../../components/PaginationControls";
 
 function scrollToSection(sectionId) {
   const section = document.getElementById(sectionId);
@@ -22,14 +22,12 @@ function scrollToSection(sectionId) {
   }
 }
 
-export default function ProgramsPage() {
-  const aboutSectionRef = useRef(null);
-
-  const [children, setChildren] = useState([]);
-  const [error, setError] = useState(null);
-  
+export default function ProgramsPage({ searchParams }) {
   let id = "";
-  
+
+  const [allChildren, setAllChildren] = useState([]);
+  const [error, setError] = useState(null);
+
   useEffect(() => {
     const fetchChildren = async () => {
       try {
@@ -48,16 +46,29 @@ export default function ProgramsPage() {
         }
 
         const data = await response.json();
-        const reversedData = data.slice(0).reverse();
-        console.log(reversedData);
-        setChildren(reversedData);
+
+        const filteredData = data.filter(
+          (item) => item._id === searchParams.id
+        );
+
+        setAllChildren(data);
       } catch (err) {
         setError(err.message);
       }
     };
 
     fetchChildren();
-  }, []);
+  }, [searchParams]);
+
+  const page = searchParams["page"] ?? "1";
+  const per_page = searchParams["per_page"] ?? "1";
+
+  // mocked, skipped and limited in the real app
+  const start = (Number(page) - 1) * Number(per_page);
+  const end = start + Number(per_page);
+
+  const entries = allChildren.slice(start, end);
+  const length = allChildren.length;
 
   return (
     <div className="scroll-smooth text-gray-800">
@@ -68,39 +79,50 @@ export default function ProgramsPage() {
         className="rounded-md"
       />
       <div className="" id="homeSection">
-        <div className="flex flex-col lg:flex-row background-color lg:gap-5">
-          <div className="">
-            <div>
-              <Image
-                src={bannerImage}
-                alt="An image"
-                width="800"
-                className="educationImage"
-              />
-            </div>
+        <div className="row background-color button-container">
+          <div className="col-lg-7">
+            <Image
+              src={bannerImage}
+              alt="An image"
+              width="800"
+              className="educationImage"
+            />
           </div>
-          <div className="mx-2">
+          <div className="col-lg-5">
             <br />
             <h1>
               <span>Sponsor A Child</span>
             </h1>
-            <h4 className="text-[18px] md:text-1g">
-              Help us keep refugee children in School.<br className="md:hidden block"/>
-              Below is the cost of
+            <h4 className="text-1g">
+              Help us keep refugee children in School. Below is the cost of
               education per child per year:
             </h4>
             <br />
-            <h5 className="text-[18px]">$200 : Covers tuition per child per year </h5>
-            <h5 className="text-[18px]">$50 : Covers meals per child per year </h5>
-            <h5 className="text-[18px]">$20 : Covers books per child per year </h5>
-            <h5 className="text-[18px]">$30 : Covers school uniform per child </h5>
-            <div>
-              <Link href="#aboutSection">
-                <button className="green-button">Sponsor A Child</button>
-              </Link>
-            </div>
-            <div>
-              <button className="blue-button">Give to a different cause</button>
+            <h5>
+              <b>$200 :</b> Covers tuition per child per year{" "}
+            </h5>
+            <h5>
+              <b>$50 :</b> Covers meals per child per year{" "}
+            </h5>
+            <h5>
+              <b>$20 :</b> Covers books per child per year{" "}
+            </h5>
+            <h5>
+              <b>$30 :</b> Covers school uniform per child{" "}
+            </h5>
+            <div className="buttonContainer">
+              <div>
+                <Link href="#aboutSection">
+                  <button className="green-button">Sponsor A Child</button>
+                </Link>
+              </div>
+              <div>
+                <Link href="#">
+                  <button className="blue-button">
+                    Give to a different cause
+                  </button>
+                </Link>
+              </div>
             </div>
             <br />
             <br />
@@ -115,30 +137,37 @@ export default function ProgramsPage() {
           <h5 className="text-center">
             Choose below a child you would like to support
           </h5>
-          <div className="space-y-10">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 md:gap-2 justify-center items-center text-center">
-              {children.map((child) => (
-                <div key={child._id}>
-                  <div className="frame text-center h-[280px] background-color flex flex-col justify-center items-center">
-                    <Image
-                      className="rounded-xl w-[150px] h-[150px]"
-                      src={child.photo}
-                      alt="Education Image"
-                      width={100}
-                      height={100}
-                      objectFit="contain"
-                    />
-                    <Link href={`/sponsorchild/${id=child._id}`}>
-                      <button className="btn btn-primary mt-3 custom-button">
-                        Sponsor
-                      </button>
-                    </Link>
-                    <p>{child.name}</p>
-                  </div>
-                </div>
-              ))}
+        </div>
+
+        <div className="flex flex-col gap-2 items-center">
+          {entries.map((child) => (
+            <div
+              key={child._id}
+              className="flex flex-col justify-center items-center gap-2"
+            >
+              <Image src={child.photo} width={300} height={300} />
+              <div className="flex flex-col justify-start text-start">
+                <p className="text-xl uppercase">Name: {child.name}</p>
+                <p className="text-xl">Age: {child.age}</p>
+                <p className="text-xl capitalize">
+                  Level of need: {child.levelOfNeed}
+                </p>
+                <Link
+                  href={`/sponsorchild/${(id = child._id)}`}
+                  className="green-button text-xl hover:bg-green-600 mb-3"
+                >
+                  VIEW TO SPONSOR
+                </Link>
+              </div>
             </div>
-          </div>
+          ))}
+
+          <PaginationControls
+            hasNextPage={end < allChildren.length}
+            hasPrevPage={start > 0}
+            childId={searchParams.id}
+            length={length}
+          />
         </div>
       </section>
       {/* About section ends here */}

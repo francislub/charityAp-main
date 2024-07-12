@@ -26,14 +26,14 @@ const PaginationControls: FC<PaginationControlsProps> = (
   const per_page = searchParams.get('per_page') ?? '1'
 
   return (
-    <div className='flex gap-2'>
+    <div className='flex gap-2 justify-center items-center'>
       <button
-        className='bg-blue-500 text-white p-1'
+        className='bg-blue-500 text-white py-1 px-3 rounded-sm'
         disabled={!hasPrevPage}
         onClick={() => {
-          router.push(`/sponsorchild/${childId}?page=${Number(page) - 1}&per_page=${per_page}`)
+          router.push(`/sponsoranychild?page=${Number(page) - 1}&per_page=${per_page}`)
         }}>
-        prev page
+        Prev Child
       </button>
 
       <div>
@@ -41,12 +41,12 @@ const PaginationControls: FC<PaginationControlsProps> = (
       </div>
 
       <button
-        className='bg-blue-500 text-white p-1'
+        className='bg-blue-500 text-white py-1 px-3 rounded-sm'
         disabled={!hasNextPage}
         onClick={() => {
-          router.push(`/sponsorchild/${childId}?page=${Number(page) + 1}&per_page=${per_page}`)
+          router.push(`/sponsoranychild?page=${Number(page) + 1}&per_page=${per_page}`)
         }}>
-        next page
+        Next Child
       </button>
     </div>
   )

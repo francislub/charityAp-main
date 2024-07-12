@@ -37,10 +37,9 @@ p {
     margin: auto;
 } */
 .container {
-    width: 90%;
+    width: 100%;
     margin: auto;
     /* Set max-width to ensure responsiveness */
-    max-width: 1140px;
 }
 
 .section {
@@ -1110,8 +1109,8 @@ footer .newsLetterContainer input {
   .close {
     background-color: #e74c3c;  /* Red color for close button */
     color: white;
-    width: 100px;
-    padding: 4px 0;
+    width: 250px;
+    padding: 4px 1px;
   }
   
   /* Hover effects for each button */
@@ -1131,7 +1130,7 @@ footer .newsLetterContainer input {
   .frame1 {
     background-color: white;
     width: 450px;
-    height: 550px;
+    height: 470px;
 }
 .position-button1 {
     width: 1100px; /* Adjust width as needed */
