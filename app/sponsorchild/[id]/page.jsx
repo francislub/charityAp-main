@@ -155,7 +155,7 @@ export default function ProgramsPage({params}) {
                         {children.map((child) => (
                         <div className="key={child._id}">
                           <br />
-                          <h2 className="text-[16px] lg:text-[30px] md:text-base">About</h2>
+                          <h2 className="text-[20px] lg:text-[30px] md:text-base"> <b>About</b></h2>
                           <h5 className="text-[16px] md:text-base">
                             <b>Name: </b>
                             {child.name}
