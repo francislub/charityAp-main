@@ -12,12 +12,6 @@ import logoImage3 from '../public/icons/link.png'
 import logoImage4 from '../public/icons/twi.png'
 import logoImage5 from '../public/icons/you.png'
 
-import educationImage1 from '../public/images/programs/1.jpg';
-import educationImage2 from '../public/images/programs/2.jpg';
-import educationImage3 from '../public/images/programs/3.jpg';
-import bannerImage from '../public/images/banner.jpg'
-// import 'bootstrap/dist/css/bootstrap.min.css';
-
 export default function ProgramsPage() {
     const [isOpen, setIsOpen] = useState(false);
 
