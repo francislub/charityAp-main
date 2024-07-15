@@ -22,7 +22,7 @@ function scrollToSection(sectionId) {
   }
 }
 
-export default function ProgramsPage({ searchParams }) {
+export default function ProgramsPage({params}) {
   const aboutSectionRef = useRef(null);
 
   const [children, setChildren] = useState([]);
@@ -46,18 +46,34 @@ export default function ProgramsPage({ searchParams }) {
         }
 
         const data = await response.json();
+        console.log("Fetched data:", data); // Debug log to check the structure of the data
+        console.log(params);
 
-
-        const filteredData = data.filter((item) => item._id === searchParams.id);
-
-        setChildren(filteredData);
+        if (params && params.id) {
+          const filteredData = data.filter((item) => item._id === params.id);
+          console.log("Filtered data:", filteredData); // Debug log to check the filtered data
+          setChildren(filteredData);
+        } else {
+          console.warn("params.id is not defined");
+        }
       } catch (err) {
         setError(err.message);
+        console.error("Error fetching data:", err); // Debug log to check for errors
       }
     };
 
+    //     const data = await response.json();
+
+
+    //     const filteredData = data.filter((item) => item._id === params.id);
+    //     setChildren(filteredData);
+    //   } catch (err) {
+    //     setError(err.message);
+    //   }
+    // };
+
     fetchChildren();
-  }, [searchParams]);
+  }, []);
 
   return (
     <div className="scroll-smooth text-gray-800">
@@ -121,67 +137,74 @@ export default function ProgramsPage({ searchParams }) {
               <div className="lg:px-3 px-2">
                 {error && <p>{error}</p>}
                   <div className="">
-                    {/* {children.map((child) => (
-                      <div key={child._id}>
-
-                      </div>
-                    ))} */}
                     <div className="flex flex-col lg:flex-row justify-between">
                       <br />
+                      <div >
                       <div className="flex flex-col lg:flex-row lg:gap-5">
-                        <div className="flex lg:justify-center lg:items-center lg:text-center">
+                       {children.map((child) => (
+                        <div className="flex lg:justify-center lg:-mt-20 lg:items-center lg:text-center" key={child._id}>
+                          {/* <Image src={child.photo}  alt={child.name} width={300} height={300} /> */}
                           <Image
-                            src={children.photo}
-                            alt={children.name}
-                            className=""
+                            src={child.photo}
+                            alt={child.name}
+                            width={300} height={300}
+                            className="lg:-mt-20"
                           />
-                          photo goes here
                         </div>
-
-                        <div className="">
+                        ))}
+                        {children.map((child) => (
+                        <div className="key={child._id}">
                           <br />
-                          <h2 className="text-[16px] md:text-base">About</h2>
+                          <h2 className="text-[16px] lg:text-[30px] md:text-base">About</h2>
                           <h5 className="text-[16px] md:text-base">
                             <b>Name: </b>
-                            {children.name}
+                            {child.name}
                           </h5>
                           <h5 className="text-[16px] md:text-base">
-                            <b>Student ID:</b>{" "}
+                            <b>Student ID:</b>{child.childId}
                           </h5>
                           <h5 className="text-[16px] md:text-base">
-                            <b>Gender:</b>{" "}
+                            <b>Gender:</b>{child.gender}
                           </h5>
                           <h5 className="text-[16px] md:text-base">
-                            <b>Age:</b>{" "}
+                            <b>Age:</b>{child.age}
                           </h5>
                           <h5 className="text-[16px] md:text-base">
-                            <b>Class:</b>{" "}
+                            <b>Class:</b>{child.grade}
                           </h5>
                           <h5 className="text-[16px] md:text-base">
-                            <b>Nationality:</b>{" "}
+                            <b>Nationality:</b>{child.nationality}
                           </h5>
                           <h5 className="text-[16px] md:text-base">
-                            <b>Parent Status:</b>{" "}
+                            <b>Parent Status:</b>{child.parentStatus}
                           </h5>
                           <h5 className="text-[16px] md:text-base">
                             <b>Level of Need: </b>
-                            {children.levelOfNeed}
+                            {child.levelOfNeed}
                           </h5>
                           <h5 className="text-[16px] md:text-base">
-                            <b>Years left to graduate: </b>{" "}
+                            <b>Years left to graduate: </b>{child.yearsLeftToGraduate}
                           </h5>
-                          <h5 className="text-[16px] md:text-base">{children.description}description goes here</h5>
-                          <div className="button-container">
+                          {/* <h5 className="text-[16px] md:text-base">{child.description}</h5> */}
+                          
+                        </div>
+                        ))}
+                      </div>
+                      {children.map((child) => (
+                        <div className="key={child._id}">
+                        <h5 className="text-[16px] md:text-base">{child.description}</h5>
+                        <div className="button-container">
                             <Link href="/sponsoranychild" className="-ml-20 lg:-ml-0">
                               <button className="close rounded text-[18px] ">Sponsor Any Other Child</button>
                             </Link>
                           </div>
                         </div>
-
+                        
+                      ))}
                       </div>
-
-                      <div className="pt-3">
-                          <h2>Sponsor: {children.name}</h2>
+                      {children.map((child) => (
+                      <div className="pt-3 key={child._id}">
+                          <h2>Sponsor: {child.name}</h2>
                         <div className="frame">
                           <div className="frame1 lg:text-center">
                             <div className="background-color1">
@@ -189,7 +212,7 @@ export default function ProgramsPage({ searchParams }) {
                                 <h4>Choose amount</h4>
                               </div>
                             </div>
-                              <h2 className="text-[26px] px-2">Sponsor {children.name}</h2>
+                              <h2 className="text-[26px] px-2">Sponsor {child.name}</h2>
                             <h5 className="px-2">
                               <b>with</b>
                             </h5>
@@ -296,7 +319,7 @@ export default function ProgramsPage({ searchParams }) {
                         </div>
                         <br />
                       </div>
-
+                      ))}
                     </div>
                   </div>
 
