@@ -55,7 +55,7 @@ export default function HomePage() {
                                 <ul className={`mt-4 md:mt-0 md:flex md:space-x-4 ${isOpen ? 'block' : 'hidden'}`}>
                                     <li className="dropdown relative">
                                         <a href="#" className="dropbtn link ">ABOUT</a>
-                                        <div className="dropdown-content absolute hidden bg-white shadow-lg rounded-md">
+                                        <div className="dropdown-content absolute hidden shadow-lg rounded-md">
                                             <Link href="/about" className="link block px-4 py-2 text-gray-700">WHO WE ARE</Link>
                                             <Link href="/wedo" className="link block px-4 py-2 text-gray-700">WHAT WE DO</Link>
                                             <Link href="/impact" className="link block px-4 py-2 text-gray-700">OUR IMPACT</Link>
@@ -66,14 +66,14 @@ export default function HomePage() {
                                     </li>
                                     <li className="dropdown relative">
                                         <a href="#" className="dropbtn link">PROGRAMS</a>
-                                        <div className="dropdown-content absolute hidden bg-white shadow-lg rounded-md">
+                                        <div className="dropdown-content absolute hidden shadow-lg rounded-md">
                                             <Link href="/education" className="link block px-4 py-2 text-gray-700">EDUCATION</Link>
                                             <Link href="/community" className="link block px-4 py-2 text-gray-700">COMMUNITY ENGAGEMENT</Link>
                                         </div>
                                     </li>
                                     <li className="dropdown relative">
                                         <a href="#" className="dropbtn link">CHAPTERS</a>
-                                        <div className="dropdown-content absolute hidden bg-white shadow-lg rounded-md">
+                                        <div className="dropdown-content absolute hidden shadow-lg rounded-md">
                                             <Link href="/denmark" className="link block px-4 py-2 text-gray-700">DENMARK</Link>
                                             <Link href="/switzerland" className="link block px-4 py-2 text-gray-700">SWITZERLAND</Link>
                                             <Link href="/germany" className="link block px-4 py-2 text-gray-700">GERMANY</Link>
