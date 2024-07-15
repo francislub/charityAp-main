@@ -113,35 +113,32 @@ export default function HomePage() {
                     </h2>
                     <br/>
                     <br/>
-                        <div className="position-button1" >
-                            <div className=" box flex flex-col">
+                        <div className="bg-gray-400" >
+                            <div className=" box flex flex-col P-4">
 
-                            <div className="flex justify-between xl:flex-row flex-col  xl:space-x-20 space-y-4 xl:space-y-0">
+                             <div className="flex justify-between xl:flex-row flex-col  xl:space-x-20 space-y-4 xl:space-y-0">
 
                                 <div className="space-y-3">
-                                    <h2 className="text-4xl text-[#1f8cad]">Education</h2>
-                                    <p className="text-lg">
+                                    <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#1f8cad]">Education</h2>
+                                    <p className="text-base sm:text-lg">
                                        Nalongo Lwokyaza Foundation serves one of the world’s most vulnerable communities by providing education to those least likely to be educated: those who come from families that cannot afford.  A case story is from Mbirabira primary school.  
                                     </p> 
-                                    <button className="hover:bg-[#197996] w-40 py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white font-bold rounded">
+                                    <button className="hover:bg-[#197996] w-32 sm:w-40 py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white font-bold rounded">
                                         <Link href="/education">
                                             Learn More
                                         </Link>
                                     </button>
                                 </div>
                                 <Image className="rounded-circle1" src={educationImage3} alt="Education Image" />
-                                {/* <Image 
-                                    className="rounded w-full hidden xl:flex" 
-                                    src={educationImage3}
-                                /> */}
-                                </div>
+                               
+                             </div>
                             </div>
                         </div>
 
                         <br/>
                         <br/>
 
-                        <div className="position-button1" >
+                        <div className="bg-gray-600" >
                             <div className=" box flex flex-col">
 
                             <div className="flex justify-between xl:flex-row flex-col  xl:space-x-20 space-y-4 xl:space-y-0">
@@ -168,7 +165,7 @@ export default function HomePage() {
                         <br/>
                         <br/>
 
-                        <div className="position-button1" >
+                        <div className="bg-gray-400" >
                             <div className=" box flex flex-col">
 
                             <div className="flex justify-between xl:flex-row flex-col  xl:space-x-20 space-y-4 xl:space-y-0">
