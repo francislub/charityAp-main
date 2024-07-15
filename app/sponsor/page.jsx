@@ -61,12 +61,15 @@ export default function ProgramsPage() {
 
   return (
     <div className="scroll-smooth text-gray-800">
-      <Image
-        src={logoImage}
-        height={90}
-        alt="Foundation Logo"
-        className="rounded-md"
-      />
+            <Link href="/">
+          <Image 
+          src={logoImage} 
+          height={100} 
+          width={100} // Add width to prevent layout shift
+          alt="Foundation Logo" 
+          className="rounded-md"
+          />
+      </Link>
       <div className="" id="homeSection">
         <div className="flex flex-col lg:flex-row background-color lg:gap-5">
           <div className="">
