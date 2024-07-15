@@ -127,7 +127,7 @@ export default function HomePage() {
 
                         <div className="flex justify-between text-lg xl:flex-row flex-col  xl:space-x-20 space-y-4 xl:space-y-0">
                             <Image 
-                                className="rounded1 w-full hidden xl:flex" 
+                                className="rounded1 w-full xl:flex" 
                                 src={educationImage1}
                             />
 
@@ -153,7 +153,7 @@ export default function HomePage() {
                                 
                             </div>
                             <Image 
-                                className="rounded1 w-full hidden xl:flex" 
+                                className="rounded1 w-full xl:flex" 
                                 src={educationImage2}
                             />
 
@@ -161,7 +161,7 @@ export default function HomePage() {
 
                         <div className="flex justify-between text-lg xl:flex-row flex-col  xl:space-x-20 space-y-4 xl:space-y-0">
                             <Image 
-                                className="rounded1 w-full hidden xl:flex" 
+                                className="rounded1 w-full xl:flex" 
                                 src={educationImage2}
                             />
 
