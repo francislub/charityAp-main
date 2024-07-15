@@ -136,11 +136,12 @@ export default function ProgramsPage() {
             {/* </section> */}
 
             {/* <section className="fullContainer -mt-20" id="aboutSection"> */}
-                <div className="container">
-                    <h3 className="sectionTitle2 text-[#1f8cad]">
-                       Senior Leadership Team
-                    </h3>
-                </div>
+            <div className="container flex items-center justify-center">
+                <h3 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-[#1f8cad] ">
+                    Senior Leadership Team
+                </h3>
+            </div>
+
                 <div className="boxContainer md:flex flex flex-wrap md:flex-row justify-center"> 
                     {leadershipTeam.map((chapter, index) => (
                         <div key={index} className={`flex justify-center hover:bg-gray-100 hover:scale-105 transition duration-300 ease-in-out ${index % 4 === 0 }`}>
