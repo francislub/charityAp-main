@@ -124,10 +124,10 @@ export default function HomePage() {
                          Open Positions:
                     </div>
                     <Link href="#">   
-                        <div className="position-button" >
+                        <div className="bg-gray-300" >
                             <div className=" box flex flex-col">
-                                <div className="position-button  ">
-                                    <div className="position-button  ">
+                                <div className="bg-gray-300  ">
+                                    <div className="bg-gray-300  ">
                                         <div ><h2 >There are currently no open positions.  Follow us on our social media channels or subscribe to our newsletter to stay up to date for new job opportunities.</h2> </div> 
                                     </div>
                                 </div>
