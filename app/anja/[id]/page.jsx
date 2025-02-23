@@ -6,9 +6,9 @@ import axios from 'axios';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import logoImage from '../../public/images/logo1.png'
-import FooterSection from "../../components/footer";
-import HeaderSection from "../../components/header";
-import SponsorSection from "../../components/sponsor";
+import FooterSection from "../../../components/footer";
+import HeaderSection from "../../../components/header";
+import SponsorSection from "../../../components/sponsor";
 
 export default function HomePage({params}) {
     const [isOpen, setIsOpen] = useState(false);
