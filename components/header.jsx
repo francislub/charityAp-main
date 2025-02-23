@@ -31,7 +31,7 @@ export default function HeaderSection() {
 
     return (
         <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-gray-800 shadow-md" : "bg-transparent"}`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-gray-800 shadow-md" : "bg-transparent-200"}`}
     >
             <div className="container">
             <Link href="/">
